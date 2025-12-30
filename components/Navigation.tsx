@@ -4,33 +4,67 @@ import { Menu, X, Phone } from 'lucide-react';
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState('home');
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Add background blur effect on scroll
+  // Add background blur effect on scroll + scroll progress
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 20);
+
+      // Calculate scroll progress
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (currentScrollY / windowHeight) * 100;
+      setScrollProgress(scrollPercent);
+
+      // Hide/show navigation on scroll
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+
+      // Detect active section
+      const sections = ['home', 'services', 'about', 'reviews'];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Catering & Decor', href: '#services' },
-    { name: 'Hamari Kahani', href: '#about' },
-    { name: 'Ashirwad', href: '#reviews' },
+    { name: 'Home', href: '#home', id: 'home' },
+    { name: 'Catering & Decor', href: '#services', id: 'services' },
+    { name: 'Hamari Kahani', href: '#about', id: 'about' },
+    { name: 'Ashirwad', href: '#reviews', id: 'reviews' },
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b-4 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-marigold py-2' 
-          : 'bg-transparent border-transparent py-4'
-      }`}
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b-4 ${scrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-marigold py-2'
+        : 'bg-transparent border-transparent py-4'
+        } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
+      {/* Scroll Progress Bar */}
+      <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary transition-all duration-300" style={{ width: `${scrollProgress}%` }}></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0 flex items-center">
@@ -40,28 +74,29 @@ const Navigation: React.FC = () => {
               </span>
               <div className="flex items-center">
                 <span className={`text-xs md:text-sm font-bold tracking-widest uppercase ${scrolled ? 'text-gray-800' : 'text-gold text-shadow'}`}>
-                    (Gonu Babu Katra)
+                  (Gonu Babu Katra)
                 </span>
                 <span className={`hidden md:inline-block mx-2 w-1 h-1 rounded-full ${scrolled ? 'bg-marigold' : 'bg-white'}`}></span>
                 <span className={`hidden md:inline-block text-xs font-bold tracking-widest uppercase ${scrolled ? 'text-marigold' : 'text-gray-200 text-shadow'}`}>
-                    Est. 1983
+                  Est. 1983
                 </span>
               </div>
             </div>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-2 rounded-md text-base font-bold transition-colors font-serif tracking-wide ${
-                    scrolled 
-                    ? 'text-gray-800 hover:text-hibiscus' 
+                className={`relative px-3 py-2 rounded-md text-base font-bold transition-colors font-serif tracking-wide group ${scrolled
+                    ? 'text-gray-800 hover:text-hibiscus'
                     : 'text-white hover:text-gold text-shadow'
-                }`}
+                  }`}
               >
                 {link.name}
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-secondary transform origin-left transition-transform duration-300 ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`}></span>
               </a>
             ))}
             <a
@@ -98,7 +133,7 @@ const Navigation: React.FC = () => {
                 {link.name}
               </a>
             ))}
-             <a
+            <a
               href="https://wa.me/919839553272"
               className="bg-hibiscus text-white px-3 py-3 rounded-md flex items-center justify-center space-x-2 mt-4 w-full font-bold"
             >

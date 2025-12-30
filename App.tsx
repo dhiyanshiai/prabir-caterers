@@ -6,19 +6,23 @@ import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import SeoSchema from './components/SeoSchema';
+import LoadingScreen from './components/LoadingScreen';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-marigold selection:text-white">
-      <SeoSchema />
-      <Navigation />
+    <>
+      <LoadingScreen />
+      <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-marigold selection:text-white">
+        <SeoSchema />
+        <Navigation />
 
-      <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      <Footer />
-    </div>
+        <Hero />
+        <Services />
+        <About />
+        <Testimonials />
+        <Footer />
+      </div>
+    </>
   );
 };
 

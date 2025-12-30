@@ -79,7 +79,7 @@ export default {
                 'fade-in': 'fadeIn 600ms cubic-bezier(0.4, 0, 0.2, 1)',
                 'slide-up': 'slideUp 600ms cubic-bezier(0.4, 0, 0.2, 1)',
                 'scale-in': 'scaleIn 400ms cubic-bezier(0.4, 0, 0.2, 1)',
-                'ken-burns': 'kenBurns 20s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate',
+                'ken-burns': 'kenBurns 25s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate',
                 'spin-slow': 'spin 8s linear infinite',
                 'pulse-soft': 'pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
@@ -98,7 +98,7 @@ export default {
                 },
                 kenBurns: {
                     '0%': { transform: 'scale(1)' },
-                    '100%': { transform: 'scale(1.15)' },
+                    '100%': { transform: 'scale(1.10)' },
                 },
                 pulseSoft: {
                     '0%, 100%': { opacity: '1' },

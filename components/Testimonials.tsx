@@ -1,5 +1,5 @@
-import React from 'react';
-import { Star, MapPin, Quote, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Star, MapPin, Quote, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Review } from '../types';
 
 const reviews: Review[] = [
@@ -23,10 +23,62 @@ const reviews: Review[] = [
     text: "Best caterer in Varanasi hands down. Khana was not just tasty, it was pure emotion. Authentic Banarasi taste.",
     source: "Google",
     rating: 5
+  },
+  {
+    id: 4,
+    name: "Priya & Vikrant Sharma",
+    text: "Mandap decoration was breathtaking! Dulhan ki khushi dekh kar lagta hai sab kuch perfect tha. Dhanyawad Prabir Ji!",
+    source: "Google",
+    rating: 5
+  },
+  {
+    id: 5,
+    name: "Rajesh Verma",
+    text: "40 saal ka experience dikh raha tha har cheez mein. Event management ekdum seamless, guests bahut khush the.",
+    source: "Justdial",
+    rating: 5
   }
 ];
 
 const Testimonials: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+
+  // Auto-advance carousel
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % reviews.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [autoPlay]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % reviews.length);
+    setAutoPlay(false);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + reviews.length) % reviews.length);
+    setAutoPlay(false);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setAutoPlay(false);
+  };
+
+  // Calculate which reviews to show (show 3 at a time on desktop)
+  const getVisibleReviews = () => {
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      visible.push(reviews[(currentSlide + i) % reviews.length]);
+    }
+    return visible;
+  };
+
   return (
     <div id="reviews" className="bg-velvet py-24 text-white relative overflow-hidden">
       {/* Texture Overlay */}
@@ -47,34 +99,73 @@ const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reviews.map((review) => (
-            <div key={review.id} className="bg-white/10 backdrop-blur-md border border-white/10 p-8 rounded-2xl relative group hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
-              <div className="absolute -top-5 -right-2 bg-gradient-to-r from-marigold to-gold text-royal text-xs font-bold px-4 py-2 rounded-full shadow-lg uppercase tracking-wider transform rotate-3 group-hover:rotate-0 transition-transform">
-                {review.source}
-              </div>
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full transition-all hidden md:block"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full transition-all hidden md:block"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
 
-              <div className="flex items-center mb-6">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-gold fill-current drop-shadow-sm" />
-                ))}
-              </div>
-
-              <p className="body-text text-gray-100 italic mb-8 font-serif">"{review.text}"</p>
-
-              <div className="flex items-center pt-6 border-t border-white/10">
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-gold to-marigold flex items-center justify-center text-royal font-bold font-serif text-2xl shadow-lg">
-                  {review.name.charAt(0)}
+          {/* Reviews Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {getVisibleReviews().map((review, idx) => (
+              <div
+                key={`${review.id}-${idx}`}
+                className={`bg-white/10 backdrop-blur-md border border-white/10 p-8 rounded-2xl relative group hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 ${idx === 1 ? 'md:scale-105' : ''
+                  }`}
+              >
+                <div className="absolute -top-5 -right-2 bg-gradient-to-r from-marigold to-gold text-royal text-xs font-bold px-4 py-2 rounded-full shadow-lg uppercase tracking-wider transform rotate-3 group-hover:rotate-0 transition-transform">
+                  {review.source}
                 </div>
-                <div className="ml-4">
-                  <p className="font-bold text-white font-serif text-lg">{review.name}</p>
-                  <p className="label-text text-accent/80 flex items-center mt-1">
-                    <MapPin size={12} className="mr-1" /> Varanasi
-                  </p>
+
+                <div className="flex items-center mb-6">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-gold fill-current drop-shadow-sm" />
+                  ))}
+                </div>
+
+                <p className="body-text text-gray-100 italic mb-8 font-serif">"{review.text}"</p>
+
+                <div className="flex items-center pt-6 border-t border-white/10">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-gold to-marigold flex items-center justify-center text-royal font-bold font-serif text-2xl shadow-lg">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div className="ml-4">
+                    <p className="font-bold text-white font-serif text-lg">{review.name}</p>
+                    <p className="label-text text-accent/80 flex items-center mt-1">
+                      <MapPin size={12} className="mr-1" /> Varanasi
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Dots Navigation */}
+          <div className="flex justify-center mt-12 gap-3">
+            {reviews.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`h-2 rounded-full transition-all ${index === currentSlide
+                    ? 'w-8 bg-accent'
+                    : 'w-2 bg-white/30 hover:bg-white/50'
+                  }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Call to Action for Review linked to WhatsApp */}
