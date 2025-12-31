@@ -61,19 +61,16 @@ const About: React.FC = () => {
                 <div className="max-w-6xl mx-auto mb-16">
                     <div className="text-center mb-12">
                         <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic mb-6">
-                            Kashi ki purani galiyan mein, jahan har pathar ek kahani sunata hai—
+                            Banaras ki purani galiyon mein, jahan har patthar ek kahani sunata hai—
                         </p>
                         <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
-                            <strong className="text-primary">1983 se</strong> humari yeh yatra shuru hui. Gonu Babu Katra ki ronak aur <strong className="text-royal">Pandey Haweli</strong> ki shaan, aaj bhi humare har kaam mein jhalakti hai.
+                            Banaras Ki purani galiyon mein Jahan har rivaaz humari zindagi ka hissa hai, hum samajte hai Ki shaadi ka Har ek pal Var - Vadhu aur unke parivar k liye bahut hi jyada khaas hai - yeh ek Woh pal hai jisme aap Jo karte ho Woh wapas nahi ho sakta
                         </p>
                         <p className="text-base md:text-lg text-gray-600 leading-relaxed mt-4 max-w-4xl mx-auto">
-                            Prabir Da ne shuruwat ek choti si soch se ki thi—"Atithi Devo Bhava". Aaj woh soch Banaras ke hazaron parivaron ka
+                            <strong className="text-primary">1983 se</strong> humari yeh yatra shuru hui. Gonu Babu Katra ki rounak aur <strong className="text-royal">Pandey Haweli</strong> ki shaan, aaj bhi humare har kaam mein jhalakti hai.
                         </p>
                         <p className="text-2xl md:text-3xl font-bold text-accent mt-4">
                             'Attoot Vishwas'
-                        </p>
-                        <p className="text-base md:text-lg text-gray-600 leading-relaxed mt-2">
-                            ban gayi hai.
                         </p>
                     </div>
 
@@ -81,10 +78,10 @@ const About: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-premium p-8 md:p-12 mb-12 relative">
                         <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary via-accent to-royal rounded-l-2xl"></div>
                         <blockquote className="text-xl md:text-2xl text-gray-800 italic leading-relaxed text-center">
-                            "Shaadi mein khana sirf pet bharne ke liye nahi, dil jeetne ke liye hota hai. Humare yahan har plate mein aashirwad parosa jata hai."
+                            "Humare yahan Har plate mein pyaar se Bhara Swadisht khana aur khub sara ashirwaad parosa jata hai"
                         </blockquote>
                         <p className="text-right mt-6 text-primary font-bold text-lg">
-                            — Prabir Da
+                            — Prabir Da (Nanu Da)
                         </p>
                     </div>
                 </div>

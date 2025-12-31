@@ -6,12 +6,11 @@ import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import SeoSchema from './components/SeoSchema';
-import LoadingScreen from './components/LoadingScreen';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
 const App: React.FC = () => {
   return (
     <>
-      <LoadingScreen />
       <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-marigold selection:text-white">
         <SeoSchema />
         <Navigation />
@@ -21,6 +20,8 @@ const App: React.FC = () => {
         <About />
         <Testimonials />
         <Footer />
+
+        <WhatsAppFloat />
       </div>
     </>
   );

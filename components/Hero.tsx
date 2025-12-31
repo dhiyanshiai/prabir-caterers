@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
           <img
             className="w-full h-full object-cover animate-ken-burns"
             src={img}
-            alt={`Authentic Banarasi cuisine - ${index === 0 ? 'Crispy kachori with tangy sabzi' : index === 1 ? 'Sweet golden jalebi' : 'Traditional breakfast platter'}`}
+            alt={`Authentic Banarasi wedding cuisine - ${index === 0 ? 'Traditional kachori sabzi from Varanasi' : index === 1 ? 'Sweet golden jalebi - Banaras specialty' : 'Complete Banarasi breakfast platter for weddings'}`}
             loading={index === 0 ? "eager" : "lazy"}
           />
         </div>
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="body-large text-gray-100 max-w-3xl mx-auto drop-shadow-md italic font-serif mt-8 animate-slide-up stagger-3">
-            "Ghat ki hawa, Shehnai ki goonj, <br className="hidden sm:block" />aur <span className="text-accent font-bold">Prabir Da</span> ka bharosa."
+            "Ghat ki hawa, Shehnai ki goonj, <br className="hidden sm:block" />aur <span className="text-accent font-bold">Prabir Da (Nanu Da)</span> ka bharosa."
           </p>
 
           <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6 animate-slide-up stagger-4">

@@ -30,9 +30,9 @@ const services: (Service & { details: DetailedServiceContent })[] = [
   {
     id: 'decor',
     title: 'Sajawat & Jhilmil (Decor)',
-    description: "Rangoli se Mandap tak. Aapka Venue ab Rajwada lagega.",
+    description: "Rangoli se Mandap tak. Aapka Venue ab Rajwadi lagega.",
     iconName: 'tent',
-    highlights: ['Phoolon ki Holli Theme', 'Royal Rajwada Setups', 'Ganga Aarti Theme'],
+    highlights: ['Phoolon ki Holli Theme', 'Royal Rajwadi Setups', 'Ganga Aarti Theme'],
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2940&auto=format&fit=crop',
     details: {
       menuTitle: "Sajawat ke Themes",
@@ -122,9 +122,10 @@ const Services: React.FC = () => {
             >
               {/* Image Section */}
               <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
+                <img
+                  src={service.image}
+                  alt={service.id === 'catering' ? 'Traditional Banarasi wedding catering - Authentic North Indian cuisine' : service.id === 'decor' ? 'Royal mandap decoration for Varanasi weddings - Tent house setup' : 'Complete wedding event planning and management in Varanasi'}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -166,18 +167,18 @@ const Services: React.FC = () => {
 
       {/* Modal for Detailed View (Sub Page Logic) */}
       {selectedService && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setSelectedService(null)}
         >
-          <div 
+          <div
             className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header Image - Smaller */}
             <div className="relative h-64 overflow-hidden rounded-t-3xl">
-              <img 
-                src={selectedService.image} 
+              <img
+                src={selectedService.image}
                 alt={selectedService.title}
                 className="w-full h-full object-cover"
               />
@@ -219,7 +220,7 @@ const Services: React.FC = () => {
 
               <div className="space-y-4 mb-8">
                 {selectedService.details.items.map((item, i) => (
-                  <div 
+                  <div
                     key={i}
                     className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-ganga/20 to-transparent hover:from-ganga/30 transition-all"
                   >

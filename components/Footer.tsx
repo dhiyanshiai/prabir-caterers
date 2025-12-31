@@ -54,10 +54,23 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Sitemap */}
+            {/* Location & Sitemap */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-gold">Rasta (Sitemap)</h4>
-              <ul className="space-y-2">
+              <h4 className="text-lg font-semibold mb-4 text-gold">Rasta (Location)</h4>
+
+              {/* Google Maps - Prominent */}
+              <a
+                href="https://maps.app.goo.gl/8hTg7FrBHzEwwtBN6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-primary/20 hover:bg-primary/30 text-white px-4 py-3 rounded-lg transition-all mb-4 w-full justify-center border border-primary/30"
+              >
+                <MapPin className="h-5 w-5 text-accent" />
+                <span className="font-semibold">Find Us on Google Maps</span>
+              </a>
+
+              {/* Sitemap Links */}
+              <ul className="space-y-2 mt-4">
                 <li><a href="#home" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Home</a></li>
                 <li><a href="#about" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Hamari Kahani (About)</a></li>
                 <li><a href="#services" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Sevaein (Services)</a></li>
@@ -76,6 +89,10 @@ const Footer: React.FC = () => {
                 <li className="flex items-center">
                   <Phone className="h-5 w-5 text-marigold mr-2 flex-shrink-0" />
                   <a href="tel:+919839553272" className="text-gray-400 hover:text-accent transition-colors">+91 98395 53272</a>
+                </li>
+                <li className="flex items-center">
+                  <Phone className="h-5 w-5 text-marigold mr-2 flex-shrink-0" />
+                  <a href="tel:+918303439353" className="text-gray-400 hover:text-accent transition-colors">+91 83034 39353</a>
                 </li>
                 <li className="flex items-center">
                   <Mail className="h-5 w-5 text-marigold mr-2 flex-shrink-0" />
