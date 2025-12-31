@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import TrustBadges from './components/TrustBadges';
 import FAQ from './components/FAQ';
@@ -19,6 +20,7 @@ const App: React.FC = () => {
 
         <Hero />
         <Services />
+        <WhyChooseUs />
         <About />
         <TrustBadges />
         <Testimonials />

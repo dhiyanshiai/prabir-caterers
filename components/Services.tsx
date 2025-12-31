@@ -12,54 +12,60 @@ const services: (Service & { details: DetailedServiceContent })[] = [
   {
     id: 'catering',
     title: 'Zayka-e-Banaras (Catering)',
-    description: "Ghat-ghat ka swad, ek hi thaali mein. Hum khana nahi, 'Bhog' banate hain.",
+    description: "Wedding Catering in Varanasi - Ghat-ghat ka swad, ek hi thaali mein. Authentic Banarasi cuisine for 50-1500 guests.",
     iconName: 'utensils',
     highlights: ['Banarasi Kachori-Jalebi', 'Shahi Paneer & Dal Makhani', 'Desi Ghee Sweets'],
     image: 'https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2940&auto=format&fit=crop',
     details: {
       menuTitle: "Khaane ka Menu",
-      descriptionHindi: "Subah ke nashte se lekar raat ki dawat tak, har nivala Banaras ki yaad dilayega. Shuddh Desi Ghee aur ghar ke masalon ka upyog.",
+      descriptionHindi: "Best Wedding Caterer in Varanasi - Subah ke nashte se lekar raat ki dawat tak, har nivala Banaras ki yaad dilayega. Humare yahan pure vegetarian aur non-vegetarian dono ka khaas intezaam hai. Chaahe aapki shaadi Assi Ghat par ho, Lanka mein, ya Godowlia ke paas - hum 50 se 1500 tak mehmano ke liye authentic Banarasi khana banate hain. Shuddh Desi Ghee aur ghar ke masalon ka upyog. Corporate events, birthday parties, aur family functions ke liye bhi hum catering services provide karte hain. Starting from ₹300 per plate for veg and ₹500 for non-veg.",
       items: [
-        "Subah: Kachori, Sabzi, Jalebi (Garam)",
-        "Swagat: Thandai, Lassi, Coffee",
-        "Main Course: Banarasi Dum Aloo, Dal Makhani, Paneer Lababdar",
-        "Meetha: Laung Lata, Malaiyyo (Seasonal), Gulab Jamun"
+        "Subah: Kachori, Sabzi, Jalebi (Garam) - Traditional Banarasi Breakfast",
+        "Swagat: Thandai, Lassi, Coffee - Welcome Drinks for Guests",
+        "Main Course: Banarasi Dum Aloo, Dal Makhani, Paneer Lababdar, Seasonal Vegetables",
+        "Non-Veg: Chicken Tikka, Mutton Korma, Fish Curry (on request)",
+        "Meetha: Laung Lata, Malaiyyo (Seasonal), Gulab Jamun, Ras Malai",
+        "Live Counters: Chaat Counter, Paan Counter, Ice Cream Station (optional)"
       ]
     }
   },
   {
     id: 'decor',
     title: 'Sajawat & Jhilmil (Decor)',
-    description: "Rangoli se Mandap tak. Aapka Venue ab Rajwadi lagega.",
+    description: "Tent House Varanasi - Rangoli se Mandap tak. Royal Rajwadi setups for weddings, parties & corporate events.",
     iconName: 'tent',
     highlights: ['Phoolon ki Holli Theme', 'Royal Rajwadi Setups', 'Ganga Aarti Theme'],
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2940&auto=format&fit=crop',
     details: {
       menuTitle: "Sajawat ke Themes",
-      descriptionHindi: "Pandey Haweli ki shaan ho ya modern banquet, hum har jagah ko 'Swarg' bana dete hain. Genda phool aur lights ka adbhut sangam.",
+      descriptionHindi: "Mandap Decoration Expert in Varanasi - Pandey Haweli ki shaan ho ya modern banquet hall, hum har jagah ko 'Swarg' bana dete hain. Wedding decoration specialist serving all areas: Godowlia, Assi, Lanka, Sigra, Bhelupur, Nadesar. Genda phool aur lights ka adbhut sangam. Traditional Banarasi themes se lekar modern royal rajwadi setups tak - sab kuch customize kar sakte hain. Stage decoration, entrance gates, photo booths, lighting arrangements - complete package available. Perfect for weddings, engagement ceremonies, birthday parties, corporate events, and family celebrations.",
       items: [
-        "Entrance: Shahi Darwaza with Shehnai players",
-        "Vedi: Traditional Marigold (Genda) mandap",
-        "Lighting: Fairy lights canopy, Jhoomar",
-        "Special: Selfie Points & Photo Booths"
+        "Entrance: Shahi Darwaza with Shehnai players, Floral Gates, Welcome Archway",
+        "Vedi: Traditional Marigold (Genda) Mandap, Rajwadi Throne Setup, Modern Glass Mandap",
+        "Lighting: Fairy lights canopy, Crystal Chandeliers, LED stage lighting, Jhoomar",
+        "Themes: Ganga Aarti Theme, Royal Rajwadi, Floral Paradise, Modern Minimalist",
+        "Special: Selfie Points & Photo Booths, Backdrop Decoration, Table Centerpieces",
+        "Additional: Sound System, Projector Setup, Red Carpet, Stage Platform"
       ]
     }
   },
   {
     id: 'planning',
     title: 'Befikar Jashn (Planning)',
-    description: "Chacha-Mama ki tension humari. Aap bas mehmaan nawazi karein.",
+    description: "Event Planning Varanasi - Complete wedding & event management. Chacha-Mama ki tension humari.",
     iconName: 'clipboard',
     highlights: ['Atithi Devo Bhava', 'Vendor Coordination', 'Time-to-Time Management'],
     image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2938&auto=format&fit=crop',
     details: {
       menuTitle: "Vyavastha & Suvidha",
-      descriptionHindi: "Shaadi ka ghar hai, shor toh hoga hi! Par tension nahi. Guests ke aane se lekar vidaai tak, Prabir Da ki team sab sambhaal legi.",
+      descriptionHindi: "Professional Event Planner in Varanasi - Shaadi ka ghar hai, shor toh hoga hi! Par tension nahi. Wedding planning from start to finish - venue selection, guest management, vendor coordination, timeline management - sab kuch. Guests ke aane se lekar vidaai tak, Prabir Da ki team sab sambhaal legi. We handle weddings, engagement parties, pre-wedding events (mehendi, sangeet), birthday celebrations, corporate events, and family functions across Varanasi. Our experienced team of 40+ years ensures smooth execution. From intimate family gatherings of 50 people to grand weddings of 1500+ guests.",
       items: [
-        "Guest Management & Stay",
-        "Logistics & Transport",
-        "Pandit Ji & Ritual Samagri",
-        "Music & Entertainment (Live Shehnai)"
+        "Guest Management: Accommodation arrangements, Transport coordination, RSVP tracking",
+        "Vendor Coordination: Photographer, Videographer, Makeup Artist, DJ/Music",
+        "Logistics & Transport: Guest pickup/drop, Vehicle arrangements, Parking management",
+        "Religious Services: Pandit Ji arrangement, Ritual Samagri, Hawan setup",
+        "Entertainment: Live Shehnai, Band, DJ, Anchor/MC services",
+        "Timeline Management: Complete day schedule, Ceremony coordination, Backup planning"
       ]
     }
   }
