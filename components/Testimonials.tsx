@@ -97,6 +97,24 @@ const Testimonials: React.FC = () => {
           <p className="body-large text-gray-300 max-w-2xl mx-auto font-serif italic">
             "Sirf client nahi, parivaar ban jate hain hum."
           </p>
+
+          {/* Justdial Rating Badge */}
+          <div className="mt-8">
+            <div className="inline-flex items-center gap-4 bg-white/10 px-6 py-4 rounded-full backdrop-blur border border-white/20 hover:bg-white/15 transition-all">
+              <div className="flex items-center gap-2">
+                {[...Array(4)].map((_, i) => (
+                  <Star key={i} className="fill-gold text-gold h-5 w-5" />
+                ))}
+                <Star className="fill-gold/50 text-gold h-5 w-5" />
+              </div>
+              <span className="text-2xl font-bold text-white">4.1</span>
+              <span className="text-gray-300">|</span>
+              <div className="text-left">
+                <div className="text-sm font-semibold text-white">150+ Reviews</div>
+                <div className="text-xs text-gray-300">Justdial & Local Platforms</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Carousel Container */}
@@ -159,8 +177,8 @@ const Testimonials: React.FC = () => {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`h-2 rounded-full transition-all ${index === currentSlide
-                    ? 'w-8 bg-accent'
-                    : 'w-2 bg-white/30 hover:bg-white/50'
+                  ? 'w-8 bg-accent'
+                  : 'w-2 bg-white/30 hover:bg-white/50'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

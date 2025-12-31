@@ -4,6 +4,8 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
+import TrustBadges from './components/TrustBadges';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import SeoSchema from './components/SeoSchema';
 import WhatsAppFloat from './components/WhatsAppFloat';
@@ -18,7 +20,9 @@ const App: React.FC = () => {
         <Hero />
         <Services />
         <About />
+        <TrustBadges />
         <Testimonials />
+        <FAQ />
         <Footer />
 
         <WhatsAppFloat />
