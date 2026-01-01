@@ -15,6 +15,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import SeoSchema from './components/SeoSchema';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import PhoneFloat from './components/PhoneFloat';
 
 // Homepage component with hash navigation support
 const HomePage: React.FC = () => {
@@ -62,6 +63,7 @@ const App: React.FC = () => {
         </Routes>
 
         <Footer />
+        <PhoneFloat />
         <WhatsAppFloat />
       </div>
     </BrowserRouter>
