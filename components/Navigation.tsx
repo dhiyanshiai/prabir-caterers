@@ -341,7 +341,7 @@ const Navigation: React.FC = () => {
 
             {/* CTA Button - Enhanced */}
             <a
-              href="https://wa.me/919839553272"
+              href="tel:+919839553272"
               className="flex items-center justify-center gap-3 px-4 py-4 rounded-xl bg-gradient-to-r from-hibiscus to-rani text-white font-bold text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
             >
               <Phone size={20} />
