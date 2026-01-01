@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
               Chakh lijiye Swad
             </a>
             <a
-              href="#contact"
+              href="#services"
               aria-label="Contact us for mandap decoration and event planning"
               className="magnetic-button px-10 py-4 glass border-2 border-white/80 text-white font-bold rounded-full text-lg hover:bg-white hover:text-velvet transition-all duration-300 flex items-center justify-center group focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
