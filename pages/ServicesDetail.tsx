@@ -1,12 +1,26 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Utensils, Tent, ClipboardCheck, Star, Award, Clock } from 'lucide-react';
 import PricingCalculator from '../components/PricingCalculator';
 
 const ServicesDetail: React.FC = () => {
-    // Scroll to top on mount
+    const location = useLocation();
+
+    // Scroll to top on mount, or to hash section if provided
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        if (location.hash) {
+            // If there's a hash (like #pricing), scroll to that section
+            const element = document.getElementById(location.hash.substring(1));
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        } else {
+            // Otherwise scroll to top
+            window.scrollTo(0, 0);
+        }
+    }, [location.hash]);
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-white via-ganga/10 to-white">
@@ -106,7 +120,7 @@ const ServicesDetail: React.FC = () => {
                                         </div>
                                         <div className="flex items-start gap-3">
                                             <span className="text-primary text-xl">✦</span>
-                                            <p><strong>Pricing:</strong> Starting ₹300/plate (veg), ₹500/plate (non-veg)</p>
+                                            <p><strong>Pricing:</strong> Starting ₹500/plate (veg), ₹800/plate (non-veg)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +207,7 @@ const ServicesDetail: React.FC = () => {
             </section>
 
             {/* Pricing Calculator Section */}
-            <section className="py-20 bg-gradient-to-b from-ganga/20 to-white">
+            <section id="pricing" className="py-20 bg-gradient-to-b from-ganga/20 to-white">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl md:text-5xl font-bold text-royal mb-4">
