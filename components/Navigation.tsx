@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Utensils, Heart, Star, BookOpen, Sparkles, Home } from 'lucide-react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
@@ -188,62 +188,164 @@ const Navigation: React.FC = () => {
           <div className="flex md:hidden items-center">
             <button
               onClick={toggleMenu}
-              className={`focus:outline-none ${scrolled ? 'text-hibiscus' : 'text-white'}`}
+              className={`relative focus:outline-none ${scrolled ? 'text-hibiscus' : 'text-white'} transition-transform hover:scale-110`}
+              aria-label="Toggle navigation menu"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? (
+                <X size={28} />
+              ) : (
+                <div className="relative">
+                  <Menu size={28} />
+                  {/* Pulse animation hint */}
+                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
+                  </span>
+                </div>
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Enhanced Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
-          <div className="px-4 pt-2 pb-6 space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleHashClick(e, link.href)}
-                className="text-gray-800 hover:text-hibiscus block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-50"
-              >
-                {link.name}
-              </a>
-            ))}
-            <Link
-              to="/services-detail"
-              onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-hibiscus block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-50"
+        <div className="md:hidden bg-gradient-to-br from-white via-ganga/10 to-white border-t-4 border-marigold absolute w-full shadow-2xl animate-slide-down">
+          <div className="px-4 pt-4 pb-6 space-y-1">
+            {/* Home Section */}
+            <a
+              href="#home"
+              onClick={(e) => handleHashClick(e, '#home')}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
-              Full Services
-            </Link>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Home className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Home</div>
+                <div className="text-gray-600 text-xs">Back to top</div>
+              </div>
+            </a>
+
+            {/* Services Section */}
+            <a
+              href="#services"
+              onClick={(e) => handleHashClick(e, '#services')}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Utensils className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Catering & Decor</div>
+                <div className="text-gray-600 text-xs">Zayka-e-Banaras, Mandap</div>
+              </div>
+            </a>
+
+            {/* Build Your Plate - Featured */}
             <Link
               to="/services-detail#pricing"
               onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-hibiscus block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-50"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 hover:border-accent transition-all group relative overflow-hidden"
             >
-              Build Your Plate
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform relative z-10">
+                <Sparkles className="text-accent" size={20} />
+              </div>
+              <div className="flex-1 relative z-10">
+                <div className="text-gray-900 font-bold text-base flex items-center gap-2">
+                  Build Your Plate
+                  <span className="text-xs bg-accent text-white px-2 py-0.5 rounded-full">Popular</span>
+                </div>
+                <div className="text-gray-600 text-xs">Custom menu calculator</div>
+              </div>
             </Link>
+
+            {/* Full Services */}
+            <Link
+              to="/services-detail"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Star className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Full Services</div>
+                <div className="text-gray-600 text-xs">Complete details</div>
+              </div>
+            </Link>
+
+            {/* About Section */}
+            <a
+              href="#about"
+              onClick={(e) => handleHashClick(e, '#about')}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Heart className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Hamari Kahani</div>
+                <div className="text-gray-600 text-xs">40+ years of trust</div>
+              </div>
+            </a>
+
+            {/* Our Story Page */}
             <Link
               to="/our-story"
               onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-hibiscus block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-50"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
-              Our Story
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <BookOpen className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Our Story</div>
+                <div className="text-gray-600 text-xs">Journey since 1983</div>
+              </div>
             </Link>
+
+            {/* Reviews Section */}
+            <a
+              href="#reviews"
+              onClick={(e) => handleHashClick(e, '#reviews')}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Star className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Ashirwad</div>
+                <div className="text-gray-600 text-xs">Customer reviews</div>
+              </div>
+            </a>
+
+            {/* Blog */}
             <Link
               to="/blog"
               onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-hibiscus block px-3 py-3 rounded-md text-lg font-medium border-b border-gray-50"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
-              Blog
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <BookOpen className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Blog</div>
+                <div className="text-gray-600 text-xs">Tips & stories</div>
+              </div>
             </Link>
+
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-3"></div>
+
+            {/* CTA Button - Enhanced */}
             <a
               href="https://wa.me/919839553272"
-              className="bg-hibiscus text-white px-3 py-3 rounded-md flex items-center justify-center space-x-2 mt-4 w-full font-bold"
+              className="flex items-center justify-center gap-3 px-4 py-4 rounded-xl bg-gradient-to-r from-hibiscus to-rani text-white font-bold text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
             >
-              <Phone size={18} />
-              <span>Call Prabir Da</span>
+              <Phone size={20} />
+              <span>Call Prabir Da Now</span>
             </a>
           </div>
         </div>
