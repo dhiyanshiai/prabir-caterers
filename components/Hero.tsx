@@ -37,19 +37,30 @@ const Hero: React.FC = () => {
   return (
     <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-velvet">
 
-      {/* YouTube Video Background */}
+      {/* Self-Hosted Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <iframe
-          src="https://www.youtube.com/embed/ZwWME2mPzW4?autoplay=1&mute=1&loop=1&playlist=ZwWME2mPzW4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
-          className="absolute top-1/2 left-1/2 w-[177.77777778vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
-          allow="autoplay; encrypted-media"
-          title="Prabir Caterers - Our Work"
-          onLoad={() => setVideoLoaded(true)}
-          style={{
-            border: 'none',
-            pointerEvents: 'none'
-          }}
-        />
+        {shouldLoadVideo && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2"
+            onLoadedData={() => setVideoLoaded(true)}
+            style={{
+              pointerEvents: 'none'
+            }}
+          >
+            <source src="/video/Prabir Caterer and Tent House - Wedding Celebrations in Varanasi.mp4" type="video/mp4" />
+            {/* Fallback image if video fails to load */}
+            <img
+              className="w-full h-full object-cover"
+              src="https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?q=80&w=2500&auto=format&fit=crop"
+              alt="Authentic Banarasi wedding cuisine"
+            />
+          </video>
+        )}
 
         {/* Fallback image while video loads */}
         {!videoLoaded && (
