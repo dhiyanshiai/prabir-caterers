@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
     const [showFullStory, setShowFullStory] = useState(false);
@@ -57,20 +58,17 @@ const About: React.FC = () => {
             <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-primary via-accent to-royal"></div>
 
             <div className="container mx-auto px-4 relative z-10">
-                {/* Main Intro Section - FIXED LAYOUT */}
+                {/* Main Intro Section */}
                 <div className="max-w-6xl mx-auto mb-16">
                     <div className="text-center mb-12">
-                        <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic mb-6">
-                            Banaras ki purani galiyon mein, jahan har patthar ek kahani sunata hai—
+                        <h2 className="text-5xl md:text-6xl font-bold text-royal mb-6">
+                            Hamari Kahani
+                        </h2>
+                        <p className="text-xl text-primary font-serif italic mb-4">
+                            Our Story
                         </p>
-                        <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
-                            Banaras Ki purani galiyon mein Jahan har rivaaz humari zindagi ka hissa hai, hum samajte hai Ki shaadi ka Har ek pal Var - Vadhu aur unke parivar k liye bahut hi jyada khaas hai - yeh ek Woh pal hai jisme aap Jo karte ho Woh wapas nahi ho sakta
-                        </p>
-                        <p className="text-base md:text-lg text-gray-600 leading-relaxed mt-4 max-w-4xl mx-auto">
-                            <strong className="text-primary">1983 se</strong> humari yeh yatra shuru hui. Gonu Babu Katra ki rounak aur <strong className="text-royal">Pandey Haweli</strong> ki shaan, aaj bhi humare har kaam mein jhalakti hai.
-                        </p>
-                        <p className="text-2xl md:text-3xl font-bold text-accent mt-4">
-                            'Attoot Vishwas'
+                        <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic mb-6 max-w-3xl mx-auto">
+                            Banaras ki purani galiyon mein, jahan har rivaaz humari zindagi ka hissa hai—
                         </p>
                     </div>
 
@@ -78,65 +76,56 @@ const About: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-premium p-8 md:p-12 mb-12 relative">
                         <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary via-accent to-royal rounded-l-2xl"></div>
                         <blockquote className="text-xl md:text-2xl text-gray-800 italic leading-relaxed text-center">
-                            "Humare yahan Har plate mein pyaar se Bhara Swadisht khana aur khub sara ashirwaad parosa jata hai"
+                            "Humare yahan har plate mein pyaar se bhara swadisht khana aur khub sara ashirwaad parosa jata hai"
                         </blockquote>
                         <p className="text-right mt-6 text-primary font-bold text-lg">
                             — Prabir Da (Nanu Da)
                         </p>
                     </div>
-                </div>
 
-                {/* Prabir Da ka Jadoo Section - FIXED: No overlapping */}
-                <div className="max-w-6xl mx-auto mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-royal text-center mb-8">
-                        Prabir Da ka Jadoo
-                    </h2>
-
+                    {/* Brief Introduction with Photo */}
                     <div className="bg-white rounded-2xl shadow-premium p-8 md:p-12">
-                        <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                            "Banaras ki purani galiyon mein, jahan rivaaz humari zindagi ka hissa hain, hum samajhte hain ki shaadi sirf ek karyakram nahi hai—ye wo pal hai jo wapas nahi aata."
-                        </p>
+                        {/* Founder Photo and Introduction */}
+                        <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+                            {/* Photo */}
+                            <div className="relative flex-shrink-0">
+                                <img
+                                    src="/images/prabir-da.webp"
+                                    alt="Prabir Mukherjee (Prabir Da) - Founder of Prabir Caterers since 1983"
+                                    className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-gold shadow-2xl"
+                                    loading="lazy"
+                                />
+                                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-accent to-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    Est. 1983
+                                </div>
+                            </div>
 
-                        <div className="space-y-6 text-gray-700 leading-relaxed">
-                            <p className="text-lg">
-                                Namaskar, Main <strong className="text-royal text-xl">Prabir Mukherjee</strong> hoon, aur mera safar <strong className="text-primary">1983</strong> mein shuru hua.
-                            </p>
-
-                            <p>
-                                Shuruwat behad sadharan thi, parivaar ke sahyog se. Kashi mein humne bartan kiraye (utensils on rent) par dene se shuru kiya. Par mujhe hamesha laga ki sirf saman dena kaafi nahi hai; mujhe logon ko sukoon dena tha. Dheere-dheere, behtar seva dene ki chahat ne humein aage badhaya. Humne bartan se shuru karke apne khud ke tents aur sajawat ka saman joda, jo aaj kisi bhi jagah ko ek shahi mandap mein badal sakta hai.
-                            </p>
-
-                            <p>
-                                Ye 40 saal ka safar kisi 'rollercoaster' se kam nahi raha. Kabhi mandi, kabhi badalte fashion, aur kabhi shaadi ke season ka bhaari dabav. Par har chunauti mein ek cheez nahi badli—humari <strong className="text-accent">imaandari</strong> aur aapko behtareen dene ki koshish.
-                            </p>
-
-                            <p>
-                                Bahut se clients kehte hain ki meri muskurahat meri pehchan hai. Sach kahun? Ye muskurahat tab aati hai jab main dekhta hoon ki ghar ka mukhiya (host) bina kisi chinta ke apni hi party enjoy kar raha hai. Jab main mehmano ko humare khane ki tareef karte sunta hoon, ya dulhan ki aankhon mein sajawat dekh kar chamak dekhta hoon—wohi meri asli kamayi hai. Aapke khaas palon ko aapke parivaar ke liye yaadgaar banana sirf mera kaam nahi, mera junoon hai.
-                            </p>
-
-                            <p className="text-lg font-semibold text-royal">
-                                Aaj hum sirf ek Tent House nahi hain. Hum <strong className="text-primary">Premier Caterers</strong> hain jo Banarasi swaad paroste hain, aur <strong className="text-accent">Event Planners</strong> hain jo naye zamane ke themes ko bhi bakhoobi nibhate hain.
-                            </p>
-
-                            <p>
-                                Humari neev paramparik hai, par soch nayi hai. Waqt ke saath hum bhi digital ho rahe hain taaki Banaras ke naye parivaron se jud sakein. Jab aap Prabir Caterers ko chunte hain, toh aap sirf ek vendor ko nahi, balki <strong className="text-primary">40 saal ke bharose</strong> aur ek <strong className="text-accent">koshish</strong> ko chunte hain jo aapke khaas din ko mukammal banati hai.
-                            </p>
-
-                            <p className="text-xl text-center font-bold text-royal mt-8">
-                                Aaiye, is parampara ko aage badhayein—saath milkar.
-                            </p>
+                            {/* Introduction Text */}
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-2xl md:text-3xl font-bold text-royal mb-2">Prabir Mukherjee</h3>
+                                <p className="text-lg text-primary italic mb-4">Founder</p>
+                                <p className="text-lg text-gray-700 leading-relaxed">
+                                    Namaskar, Main <strong className="text-royal text-xl">Prabir Mukherjee</strong> hoon. 40 saal se Banaras ki shadiyon aur jashn mein shaamil hoon. Humne bartan kiraye se shuru karke aaj ek complete catering, decoration aur event planning service bana di hai. <strong className="text-accent">Banarasi aur Bengali cuisines</strong> mein humari khaas maharat hai.
+                                </p>
+                            </div>
                         </div>
 
-                        {!showFullStory && (
-                            <div className="text-center mt-8">
-                                <button
-                                    onClick={() => setShowFullStory(true)}
-                                    className="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold shadow-premium hover:shadow-premium-lg hover:bg-primary-dark transition-all duration-300"
-                                >
-                                    Puri Kahani Padhein
-                                </button>
-                            </div>
-                        )}
+                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                            <strong className="text-primary text-xl">1983 se</strong> humari yeh yatra shuru hui. Gonu Babu Katra ki rounak aur <strong className="text-royal">Pandey Haweli</strong> ki shaan, aaj bhi humare har kaam mein jhalakti hai.
+                        </p>
+
+                        <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                            Har shaadi ek naya safar hai, aur hum uske har mod par aapke saath hain. Humari neev paramparik hai, par soch nayi hai. <strong className="text-accent">Atithi Devo Bhava</strong> - yahi humara mantra hai.
+                        </p>
+
+                        <div className="text-center">
+                            <Link
+                                to="/our-story"
+                                className="inline-block bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-premium hover:shadow-premium-lg hover:bg-primary-dark transition-all duration-300"
+                            >
+                                Puri Kahani Padhein →
+                            </Link>
+                        </div>
                     </div>
                 </div>
 

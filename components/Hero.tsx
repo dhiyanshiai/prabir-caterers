@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [currentImage, setCurrentImage] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Specific Banarasi Food Images: Kachori first, then Jalebi, then the spread
-  const images = [
-    "https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?q=80&w=2500&auto=format&fit=crop", // Banarasi Kachori Sabzi (Close-up)
-    "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2944&auto=format&fit=crop", // Jalebi (The Essential Sweet Pairing)
-    "https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=2070&auto=format&fit=crop"  // Traditional Breakfast Platter
-  ];
-
+  // Check if mobile on mount
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  // Lazy load video after initial page load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 500); // 500ms delay to let page load first
+    return () => clearTimeout(timer);
   }, []);
 
   // Parallax scroll effect
@@ -34,28 +35,35 @@ const Hero: React.FC = () => {
   };
 
   return (
-    // Cleaner solid background instead of muddy gradient
     <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-velvet">
 
-      {/* Background Slideshow with Floating Effect */}
-      {images.map((img, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-[2500ms] ease-in-out ${index === currentImage ? 'opacity-100' : 'opacity-0'
-            }`}
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-        >
-          <img
-            className="w-full h-full object-cover animate-ken-burns"
-            src={img}
-            alt={`Authentic Banarasi wedding cuisine - ${index === 0 ? 'Traditional kachori sabzi from Varanasi' : index === 1 ? 'Sweet golden jalebi - Banaras specialty' : 'Complete Banarasi breakfast platter for weddings'}`}
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
+      {/* YouTube Video Background */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/ZwWME2mPzW4?autoplay=1&mute=1&loop=1&playlist=ZwWME2mPzW4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+          className="absolute top-1/2 left-1/2 w-[177.77777778vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
+          allow="autoplay; encrypted-media"
+          title="Prabir Caterers - Our Work"
+          onLoad={() => setVideoLoaded(true)}
+          style={{
+            border: 'none',
+            pointerEvents: 'none'
+          }}
+        />
 
-      {/* Simplified overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-royal/60 via-royal/40 to-velvet/90"></div>
+        {/* Fallback image while video loads */}
+        {!videoLoaded && (
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?q=80&w=2500&auto=format&fit=crop"
+            alt="Authentic Banarasi wedding cuisine"
+            loading="eager"
+          />
+        )}
+      </div>
+
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-royal/70 via-royal/50 to-velvet/90"></div>
 
       {/* Decorative Texture Overlay */}
       <div className="absolute inset-0 pattern-overlay opacity-20"></div>

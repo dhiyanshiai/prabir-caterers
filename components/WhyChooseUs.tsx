@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Award, Users, MapPin, Star, Clock } from 'lucide-react';
+import { CheckCircle, Award, Users, MapPin, Star, Clock, ChefHat } from 'lucide-react';
 
 const WhyChooseUs: React.FC = () => {
     const reasons = [
@@ -16,10 +16,10 @@ const WhyChooseUs: React.FC = () => {
             highlight: "5000+ Events"
         },
         {
-            icon: Award,
-            title: "Authentic Banarasi Cuisine",
-            description: "Traditional recipes passed down generations. Pure veg and non-veg options. Desi ghee, fresh ingredients, no compromises.",
-            highlight: "100% Authentic"
+            icon: ChefHat,
+            title: "Authentic Banarasi & Bengali Cuisine",
+            description: "Traditional recipes passed down through generations. From Banarasi kachori to Bengali Kosha Mangsho - we master both!",
+            highlight: "Dual Expertise"
         },
         {
             icon: MapPin,

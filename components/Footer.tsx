@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Facebook, Instagram, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -75,6 +76,8 @@ const Footer: React.FC = () => {
                 <li><a href="#about" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Hamari Kahani (About)</a></li>
                 <li><a href="#services" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Sevaein (Services)</a></li>
                 <li><a href="#reviews" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Ashirwad (Reviews)</a></li>
+                <li><Link to="/our-story" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Our Story</Link></li>
+                <li><Link to="/blog" className="text-gray-400 hover:text-marigold transition-colors hover:translate-x-1 inline-block">Blog</Link></li>
               </ul>
             </div>
 
