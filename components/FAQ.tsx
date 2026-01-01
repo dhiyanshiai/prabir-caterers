@@ -9,7 +9,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
     {
         question: "How much does wedding catering cost in Varanasi?",
-        answer: "Our catering packages start from ₹300 per plate for vegetarian and ₹500 per plate for non-vegetarian options. Final pricing depends on your menu selection, guest count, and specific event requirements. We offer customized packages to fit every budget. Contact us for a detailed, personalized quote for your special day."
+        answer: "Our catering packages start from ₹500 per plate for vegetarian and ₹800 per plate for non-vegetarian options. Final pricing depends on your menu selection, guest count, and specific event requirements. We offer customized packages to fit every budget. Contact us for a detailed, personalized quote for your special day."
     },
     {
         question: "Do you provide both veg and non-veg catering?",

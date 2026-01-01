@@ -18,7 +18,7 @@ const services: (Service & { details: DetailedServiceContent })[] = [
     image: 'https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2940&auto=format&fit=crop',
     details: {
       menuTitle: "Khaane ka Menu",
-      descriptionHindi: "Best Wedding Caterer in Varanasi - Subah ke nashte se lekar raat ki dawat tak, har nivala Banaras ki yaad dilayega. Humare yahan pure vegetarian aur non-vegetarian dono ka khaas intezaam hai. Chaahe aapki shaadi Assi Ghat par ho, Lanka mein, ya Godowlia ke paas - hum 50 se 1500 tak mehmano ke liye authentic Banarasi khana banate hain. Shuddh Desi Ghee aur ghar ke masalon ka upyog. Corporate events, birthday parties, aur family functions ke liye bhi hum catering services provide karte hain. Starting from ₹300 per plate for veg and ₹500 for non-veg.",
+      descriptionHindi: "Best Wedding Caterer in Varanasi - Subah ke nashte se lekar raat ki dawat tak, har nivala Banaras ki yaad dilayega. Humare yahan pure vegetarian aur non-vegetarian dono ka khaas intezaam hai. Chaahe aapki shaadi Assi Ghat par ho, Lanka mein, ya Godowlia ke paas - hum 50 se 1500 tak mehmano ke liye authentic Banarasi khana banate hain. Shuddh Desi Ghee aur ghar ke masalon ka upyog. Corporate events, birthday parties, aur family functions ke liye bhi hum catering services provide karte hain. Starting from ₹500 per plate for veg and ₹800 for non-veg.",
       items: [
         "Subah: Kachori, Sabzi, Jalebi (Garam) - Traditional Banarasi Breakfast",
         "Swagat: Thandai, Lassi, Coffee - Welcome Drinks for Guests",
