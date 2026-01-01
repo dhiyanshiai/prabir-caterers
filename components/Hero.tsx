@@ -25,9 +25,12 @@ const Hero: React.FC = () => {
   useEffect(() => {
     if (shouldLoadVideo && videoRef.current) {
       const video = videoRef.current;
+      let hasPlayed = false;
 
       // Attempt to play the video
       const playVideo = async () => {
+        if (hasPlayed) return; // Don't try if already playing
+
         try {
           // Set attributes programmatically for better mobile support
           video.muted = true;
@@ -36,19 +39,10 @@ const Hero: React.FC = () => {
           video.setAttribute('webkit-playsinline', 'true');
 
           await video.play();
+          hasPlayed = true;
           console.log('Video autoplay successful');
         } catch (error) {
-          console.log('Autoplay failed, retrying...', error);
-
-          // Retry after a short delay
-          setTimeout(async () => {
-            try {
-              await video.play();
-              console.log('Video autoplay successful on retry');
-            } catch (retryError) {
-              console.log('Video autoplay failed on retry', retryError);
-            }
-          }, 1000);
+          console.log('Autoplay failed, will retry on user interaction...', error);
         }
       };
 
@@ -60,8 +54,23 @@ const Hero: React.FC = () => {
         playVideo();
       }
 
+      // CRITICAL: Add user interaction listener for incognito/restrictive browsers
+      const handleUserInteraction = () => {
+        if (!hasPlayed && video.paused) {
+          playVideo();
+        }
+      };
+
+      // Listen for any user interaction on the page
+      document.addEventListener('click', handleUserInteraction, { once: true });
+      document.addEventListener('touchstart', handleUserInteraction, { once: true });
+      document.addEventListener('scroll', handleUserInteraction, { once: true });
+
       return () => {
         video.removeEventListener('canplay', playVideo);
+        document.removeEventListener('click', handleUserInteraction);
+        document.removeEventListener('touchstart', handleUserInteraction);
+        document.removeEventListener('scroll', handleUserInteraction);
       };
     }
   }, [shouldLoadVideo]);

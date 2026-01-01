@@ -210,7 +210,7 @@ const Navigation: React.FC = () => {
 
       {/* Enhanced Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-gradient-to-br from-white via-ganga/10 to-white border-t-4 border-marigold absolute w-full shadow-2xl animate-slide-down">
+        <div className="md:hidden bg-white border-t-4 border-marigold absolute w-full shadow-2xl animate-slide-down">
           <div className="px-4 pt-4 pb-6 space-y-1">
             {/* Home Section */}
             <a
