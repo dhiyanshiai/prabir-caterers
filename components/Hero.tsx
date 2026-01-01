@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -6,6 +6,7 @@ const Hero: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Check if mobile on mount
   useEffect(() => {
@@ -19,6 +20,51 @@ const Hero: React.FC = () => {
     }, 500); // 500ms delay to let page load first
     return () => clearTimeout(timer);
   }, []);
+
+  // Force video to play on mobile (aggressive autoplay)
+  useEffect(() => {
+    if (shouldLoadVideo && videoRef.current) {
+      const video = videoRef.current;
+
+      // Attempt to play the video
+      const playVideo = async () => {
+        try {
+          // Set attributes programmatically for better mobile support
+          video.muted = true;
+          video.playsInline = true;
+          video.setAttribute('playsinline', 'true');
+          video.setAttribute('webkit-playsinline', 'true');
+
+          await video.play();
+          console.log('Video autoplay successful');
+        } catch (error) {
+          console.log('Autoplay failed, retrying...', error);
+
+          // Retry after a short delay
+          setTimeout(async () => {
+            try {
+              await video.play();
+              console.log('Video autoplay successful on retry');
+            } catch (retryError) {
+              console.log('Video autoplay failed on retry', retryError);
+            }
+          }, 1000);
+        }
+      };
+
+      // Try to play when video can play
+      video.addEventListener('canplay', playVideo);
+
+      // Also try immediately if already loaded
+      if (video.readyState >= 3) {
+        playVideo();
+      }
+
+      return () => {
+        video.removeEventListener('canplay', playVideo);
+      };
+    }
+  }, [shouldLoadVideo]);
 
   // Parallax scroll effect
   useEffect(() => {
@@ -41,11 +87,14 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {shouldLoadVideo && (
           <video
+            ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
+            webkit-playsinline="true"
+            x-webkit-airplay="allow"
             className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2"
             onLoadedData={() => setVideoLoaded(true)}
             style={{
