@@ -84,7 +84,7 @@ const blogPostsData: Record<string, BlogPostData> = {
         category: 'Event Planning',
         date: 'December 15, 2024',
         author: 'Decoration Team',
-        image: '/Images/ganga-aarti-wedding.webp',
+        image: '/images/ganga-aarti-wedding.webp',
         readTime: '5 min read',
         content: [
             'Varanasi\'s Ganga Aarti is one of the most mesmerizing spiritual ceremonies in India. Imagine bringing that divine atmosphere to your wedding! A Ganga Aarti themed wedding creates an unforgettable experience for you and your guests.',

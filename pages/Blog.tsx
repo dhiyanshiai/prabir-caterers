@@ -51,7 +51,7 @@ const blogPosts: BlogPost[] = [
         category: 'Event Planning',
         date: 'December 15, 2024',
         author: 'Decoration Team',
-        image: '/Images/ganga-aarti-wedding.webp',
+        image: '/images/ganga-aarti-wedding.webp',
         readTime: '5 min read'
     },
     {
