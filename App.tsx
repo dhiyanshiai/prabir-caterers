@@ -1,10 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import ServicesDetail from './pages/ServicesDetail';
-import OurStory from './pages/OurStory';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import GalleryPage from './pages/GalleryPage';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -18,6 +13,14 @@ import Footer from './components/Footer';
 import SeoSchema from './components/SeoSchema';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import PhoneFloat from './components/PhoneFloat';
+import LoadingScreen from './components/LoadingScreen';
+
+// Lazy load pages for better performance
+const ServicesDetail = lazy(() => import('./pages/ServicesDetail'));
+const OurStory = lazy(() => import('./pages/OurStory'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 
 // Homepage component with hash navigation support
 const HomePage: React.FC = () => {
@@ -57,14 +60,16 @@ const App: React.FC = () => {
         <SeoSchema />
         <Navigation />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services-detail" element={<ServicesDetail />} />
-          <Route path="/our-story" element={<OurStory />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-        </Routes>
+        <Suspense fallback={<LoadingScreen />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services-detail" element={<ServicesDetail />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
         <PhoneFloat />
