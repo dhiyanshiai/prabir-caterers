@@ -4,11 +4,13 @@ import ServicesDetail from './pages/ServicesDetail';
 import OurStory from './pages/OurStory';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import GalleryPage from './pages/GalleryPage';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import WhyChooseUs from './components/WhyChooseUs';
+import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import TrustBadges from './components/TrustBadges';
 import FAQ from './components/FAQ';
@@ -40,6 +42,7 @@ const HomePage: React.FC = () => {
       <Services />
       <About />
       <WhyChooseUs />
+      <Gallery />
       <TrustBadges />
       <Testimonials />
       <FAQ />
@@ -58,6 +61,7 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/services-detail" element={<ServicesDetail />} />
           <Route path="/our-story" element={<OurStory />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>

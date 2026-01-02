@@ -1,10 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Utensils, Tent, ClipboardCheck, Star, Award, Clock } from 'lucide-react';
+import { Utensils, Tent, ClipboardCheck, Star, Award, Clock, Camera } from 'lucide-react';
 import PricingCalculator from '../components/PricingCalculator';
+import Lightbox, { GalleryImage } from '../components/Lightbox';
+import { galleryImages } from '../components/Gallery';
 
 const ServicesDetail: React.FC = () => {
     const location = useLocation();
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    // Get only food images for this page
+    const foodImages = galleryImages.filter(img => img.category === 'food');
+
+    const openLightbox = (index: number) => {
+        setCurrentImageIndex(index);
+        setLightboxOpen(true);
+    };
 
     // Scroll to top on mount, or to hash section if provided
     useEffect(() => {
@@ -206,6 +218,65 @@ const ServicesDetail: React.FC = () => {
                 </div>
             </section>
 
+            {/* Food Gallery Section */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="text-center mb-12">
+                            <Camera className="mx-auto text-primary mb-4" size={48} />
+                            <h2 className="text-4xl md:text-5xl font-bold text-royal mb-4">
+                                Hamara Khana
+                            </h2>
+                            <p className="text-xl text-primary font-serif italic mb-2">
+                                Our Food Showcase
+                            </p>
+                            <p className="text-gray-600 max-w-3xl mx-auto">
+                                Dekho hamare zaayke ki tasveerein - har dish mein pyaar aur parampara
+                            </p>
+                        </div>
+
+                        {/* Food Images Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+                            {foodImages.map((image, index) => (
+                                <div
+                                    key={index}
+                                    className="group relative overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                                    onClick={() => openLightbox(index)}
+                                >
+                                    <img
+                                        src={image.src}
+                                        alt={image.alt}
+                                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                                        loading="lazy"
+                                    />
+                                    {/* Hover Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                                        <p className="text-white text-xs font-medium line-clamp-2">{image.alt}</p>
+                                    </div>
+                                    {/* View Icon */}
+                                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <div className="bg-white/90 p-3 rounded-full">
+                                            <Camera className="text-primary" size={24} />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* View All Gallery CTA */}
+                        <div className="text-center">
+                            <a
+                                href="/gallery"
+                                className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-bold text-lg shadow-premium hover:shadow-premium-lg transition-all duration-300 group"
+                            >
+                                <Camera size={24} />
+                                View Complete Gallery
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Pricing Calculator Section */}
             <section id="pricing" className="py-20 bg-gradient-to-b from-ganga/20 to-white">
                 <div className="container mx-auto px-4">
@@ -246,6 +317,15 @@ const ServicesDetail: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Lightbox */}
+            <Lightbox
+                images={foodImages}
+                currentIndex={currentImageIndex}
+                isOpen={lightboxOpen}
+                onClose={() => setLightboxOpen(false)}
+                onNavigate={setCurrentImageIndex}
+            />
         </div>
     );
 };

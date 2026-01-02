@@ -51,7 +51,7 @@ const blogPosts: BlogPost[] = [
         category: 'Event Planning',
         date: 'December 15, 2024',
         author: 'Decoration Team',
-        image: 'https://images.unsplash.com/photo-1609619385002-f40f2a4d6b00?q=80&w=2940&auto=format&fit=crop',
+        image: '/Images/ganga-aarti-wedding.webp',
         readTime: '5 min read'
     },
     {
@@ -121,8 +121,8 @@ const Blog: React.FC = () => {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${selectedCategory === category
-                                        ? 'bg-primary text-white shadow-lg scale-105'
-                                        : 'bg-ganga/30 text-gray-700 hover:bg-ganga/50'
+                                    ? 'bg-primary text-white shadow-lg scale-105'
+                                    : 'bg-ganga/30 text-gray-700 hover:bg-ganga/50'
                                     }`}
                             >
                                 {category}

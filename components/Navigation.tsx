@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Utensils, Heart, Star, BookOpen, Sparkles, Home } from 'lucide-react';
+import { Menu, X, Phone, Utensils, Heart, Star, BookOpen, Sparkles, Home, Camera } from 'lucide-react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
@@ -163,6 +163,19 @@ const Navigation: React.FC = () => {
                 }`}></span>
             </Link>
 
+            {/* Gallery Link */}
+            <Link
+              to="/gallery"
+              className={`relative px-1 py-2 rounded-md text-[10px] lg:text-xs font-bold transition-colors font-serif group ${scrolled
+                ? 'text-gray-800 hover:text-hibiscus'
+                : 'text-white hover:text-gold text-shadow'
+                }`}
+            >
+              Gallery
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-secondary transform origin-left transition-transform duration-300 ${location.pathname === '/gallery' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}></span>
+            </Link>
+
             {/* Blog Link */}
             <Link
               to="/blog"
@@ -303,6 +316,21 @@ const Navigation: React.FC = () => {
               <div className="flex-1">
                 <div className="text-gray-900 font-bold text-base">Our Story</div>
                 <div className="text-gray-600 text-xs">Journey since 1983</div>
+              </div>
+            </Link>
+
+            {/* Gallery */}
+            <Link
+              to="/gallery"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Camera className="text-primary" size={20} />
+              </div>
+              <div className="flex-1">
+                <div className="text-gray-900 font-bold text-base">Gallery</div>
+                <div className="text-gray-600 text-xs">Photos & showcase</div>
               </div>
             </Link>
 

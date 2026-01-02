@@ -211,7 +211,7 @@ const PricingCalculator: React.FC = () => {
     const [guestCount, setGuestCount] = useState(100);
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
     const [selectedPackage, setSelectedPackage] = useState<string>('');
-    const [expandedCategories, setExpandedCategories] = useState<string[]>(['rice', 'bread', 'veg']);
+    const [expandedCategories, setExpandedCategories] = useState<string[]>(['rice', 'bread', 'starter', 'veg', 'nonveg', 'sweet', 'live', 'beverage']);
 
     const toggleCategory = (category: string) => {
         setExpandedCategories(prev =>
@@ -294,8 +294,8 @@ const PricingCalculator: React.FC = () => {
                             key={pkg.id}
                             onClick={() => selectPackage(pkg.id)}
                             className={`p-6 rounded-xl border-2 cursor-pointer transition-all ${selectedPackage === pkg.id
-                                    ? 'border-primary bg-primary/5 shadow-lg'
-                                    : 'border-gray-200 hover:border-primary/50 hover:shadow-md'
+                                ? 'border-primary bg-primary/5 shadow-lg'
+                                : 'border-gray-200 hover:border-primary/50 hover:shadow-md'
                                 }`}
                         >
                             <div className="flex items-start justify-between mb-3">
@@ -353,14 +353,19 @@ const PricingCalculator: React.FC = () => {
                         <div key={categoryKey} className="mb-4">
                             <button
                                 onClick={() => toggleCategory(categoryKey)}
-                                className="w-full flex items-center justify-between p-4 bg-gradient-to-r ${config.color} text-white rounded-xl hover:shadow-lg transition-all"
+                                className={`w-full flex items-center justify-between p-4 bg-gradient-to-r ${config.color} text-white rounded-xl hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]`}
                             >
                                 <div className="flex items-center gap-3">
                                     <span className="text-2xl">{config.icon}</span>
                                     <span className="font-bold text-lg">{config.name}</span>
                                     <span className="text-sm opacity-90">({categoryItems.length} items)</span>
                                 </div>
-                                {isExpanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+                                <div className="flex items-center gap-2">
+                                    <span className="text-xs font-semibold bg-white/20 px-3 py-1 rounded-full">
+                                        {isExpanded ? 'Collapse' : 'Expand'}
+                                    </span>
+                                    {isExpanded ? <ChevronUp size={24} className="animate-bounce" /> : <ChevronDown size={24} />}
+                                </div>
                             </button>
 
                             {isExpanded && (
@@ -369,8 +374,8 @@ const PricingCalculator: React.FC = () => {
                                         <label
                                             key={item.id}
                                             className={`flex items-center justify-between p-3 rounded-lg border-2 cursor-pointer transition-all ${selectedItems.includes(item.id)
-                                                    ? 'border-primary bg-primary/5'
-                                                    : 'border-gray-200 hover:border-primary/50'
+                                                ? 'border-primary bg-primary/5'
+                                                : 'border-gray-200 hover:border-primary/50'
                                                 }`}
                                         >
                                             <div className="flex items-center gap-2 flex-1">
@@ -412,8 +417,8 @@ const PricingCalculator: React.FC = () => {
                 <a
                     href={isMinimumMet() ? `https://wa.me/919839553272?text=${encodeURIComponent(getWhatsAppMessage())}` : '#'}
                     className={`w-full px-8 py-4 rounded-full font-bold text-lg shadow-premium transition-all duration-300 flex items-center justify-center gap-3 group ${isMinimumMet()
-                            ? 'bg-gradient-to-r from-primary to-accent text-white hover:shadow-premium-lg'
-                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        ? 'bg-gradient-to-r from-primary to-accent text-white hover:shadow-premium-lg'
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                         }`}
                     onClick={(e) => !isMinimumMet() && e.preventDefault()}
                 >

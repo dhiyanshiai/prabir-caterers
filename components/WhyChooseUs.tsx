@@ -55,13 +55,13 @@ const WhyChooseUs: React.FC = () => {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-5xl md:text-6xl font-bold text-royal mb-4">
-                        Kyun Chunein Humein?
+                        Kyon Chune Humein?
                     </h2>
                     <p className="text-xl text-primary font-serif italic mb-2">
-                        Why Choose Prabir Caterers
+                        Why Choose Prabir Caterer
                     </p>
                     <p className="text-gray-600 max-w-3xl mx-auto">
-                        Banaras ki har shaadi mein, har function mein - vishwas ka naam hai Prabir Caterers. 40 saal se aapki khushi mein shaamil.
+                        Banaras ki har shaadi mein, har function mein - vishwas ka naam hai Prabir Caterer. 40 saal se aapki khushi mein shaamil.
                     </p>
                 </div>
 

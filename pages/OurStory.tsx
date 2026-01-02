@@ -204,7 +204,7 @@ const OurStory: React.FC = () => {
                             </p>
 
                             <p>
-                                Meri team aaj mere saath hai—kuch log toh shuruwat se hi hain. Unka dedication, unka pyaar, aur unki mehnat hi Prabir Caterers ki asli taakat hai. Main akela kuch nahi hoon; hum sab milkar ek parivaar hain jo aapke parivaar ki khushi ke liye kaam karta hai.
+                                Meri team aaj mere saath hai—kuch log toh shuruwat se hi hain. Unka dedication, unka pyaar, aur unki mehnat hi Prabir Caterer ki asli taakat hai. Main akela kuch nahi hoon; hum sab milkar ek parivaar hain jo aapke parivaar ki khushi ke liye kaam karta hai.
                             </p>
                         </div>
                     </div>

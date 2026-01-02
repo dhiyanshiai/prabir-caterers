@@ -91,7 +91,7 @@ const About: React.FC = () => {
                             <div className="relative flex-shrink-0">
                                 <img
                                     src="/images/prabir-da.webp"
-                                    alt="Prabir Mukherjee (Prabir Da) - Founder of Prabir Caterers since 1983"
+                                    alt="Prabir Mukherjee (Prabir Da) - Founder of Prabir Caterer since 1983"
                                     className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-gold shadow-2xl"
                                     loading="lazy"
                                 />
@@ -161,7 +161,7 @@ const About: React.FC = () => {
                     <a
                         href="#contact"
                         onClick={() => setShowFullStory(false)}
-                        aria-label="Contact Prabir Caterers to book your event"
+                        aria-label="Contact Prabir Caterer to book your event"
                         className="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold shadow-premium hover:shadow-premium-lg hover:bg-primary-dark transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                     >
                         Sampark Karein
@@ -221,7 +221,7 @@ const About: React.FC = () => {
                                 </p>
 
                                 <p>
-                                    Meri team aaj mere saath hai—kuch log toh shuruwat se hi hain. Unka dedication, unka pyaar, aur unki mehnat hi Prabir Caterers ki asli taakat hai. Main akela kuch nahi hoon; hum sab milkar ek parivaar hain jo aapke parivaar ki khushi ke liye kaam karta hai.
+                                    Meri team aaj mere saath hai—kuch log toh shuruwat se hi hain. Unka dedication, unka pyaar, aur unki mehnat hi Prabir Caterer ki asli taakat hai. Main akela kuch nahi hoon; hum sab milkar ek parivaar hain jo aapke parivaar ki khushi ke liye kaam karta hai.
                                 </p>
 
                                 <p className="text-center text-2xl font-bold text-royal py-6">
@@ -233,7 +233,7 @@ const About: React.FC = () => {
                                 </p>
 
                                 <p>
-                                    Jab aap Prabir Caterers ko chunte hain, toh aap sirf ek service provider ko nahi, balki 40 saal ke vishwas, anubhav, aur pyaar ko chunte hain. Hum aapke sapnon ko poora karne ke liye tayyar hain.
+                                    Jab aap Prabir Caterer ko chunte hain, toh aap sirf ek service provider ko nahi, balki 40 saal ke vishwas, anubhav, aur pyaar ko chunte hain. Hum aapke sapnon ko poora karne ke liye tayyar hain.
                                 </p>
 
                                 <p className="text-center text-xl italic text-accent py-4">

@@ -40,7 +40,7 @@ const faqs: FAQItem[] = [
         answer: "Yes! Our complete event planning service includes trained serving staff, event coordinators, and management team. We handle everything from guest reception to food service coordination, allowing you and your family to relax and enjoy your special occasion without any stress."
     },
     {
-        question: "What makes Prabir Caterers different from others?",
+        question: "What makes Prabir Caterer different from others?",
         answer: "With 40+ years of experience since 1983, we bring authentic Banarasi traditions combined with modern service excellence. Our founder Prabir Da (Nanu Da) personally oversees quality, and our reputation of trust is built on 5000+ successful events. We're not just vendors - we become part of your family celebration."
     },
     {
