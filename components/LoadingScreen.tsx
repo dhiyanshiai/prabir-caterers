@@ -43,7 +43,7 @@ const LoadingScreen: React.FC = () => {
                 <div className="mb-12 animate-fade-in">
                     <h1 className="display-heading text-white drop-shadow-2xl mb-2">
                         <span className="block gradient-text-animated text-6xl md:text-7xl">Prabir</span>
-                        <span className="block text-accent text-3xl md:text-4xl font-serif">Caterers</span>
+                        <span className="block text-accent text-3xl md:text-4xl font-serif">Caterer</span>
                     </h1>
                     <p className="text-gray-300 font-serif italic mt-4 text-lg">Banaras ki Shaan • Est. 1983</p>
                 </div>
