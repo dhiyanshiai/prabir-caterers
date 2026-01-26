@@ -1,0 +1,84 @@
+import React, { useEffect, Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import About from './components/About';
+import Services from './components/Services';
+import WhyChooseUs from './components/WhyChooseUs';
+import Gallery from './components/Gallery';
+import Testimonials from './components/Testimonials';
+import TrustBadges from './components/TrustBadges';
+import FAQ from './components/FAQ';
+import Footer from './components/Footer';
+import Welcome from './components/Welcome';
+import SeoSchema from './components/SeoSchema';
+import WhatsAppFloat from './components/WhatsAppFloat';
+import PhoneFloat from './components/PhoneFloat';
+import LoadingScreen from './components/LoadingScreen';
+
+// Lazy load pages for better performance
+const ServicesDetail = lazy(() => import('./pages/ServicesDetail'));
+const OurStory = lazy(() => import('./pages/OurStory'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
+
+// Homepage component with hash navigation support
+const HomePage: React.FC = () => {
+  const location = useLocation();
+
+  // Handle hash navigation on mount and when hash changes
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        // Small delay to ensure page is rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
+
+  return (
+    <>
+      <Hero />
+      <Welcome />
+      <Services />
+      <About />
+      <WhyChooseUs />
+      <Gallery />
+      <TrustBadges />
+      <Testimonials />
+      <FAQ />
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-marigold selection:text-white">
+        <SeoSchema />
+        <Navigation />
+
+        <Suspense fallback={<LoadingScreen />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services-detail" element={<ServicesDetail />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+          </Routes>
+        </Suspense>
+
+        <Footer />
+        <PhoneFloat />
+        <WhatsAppFloat />
+      </div>
+    </BrowserRouter>
+  );
+};
+
+export default App;
