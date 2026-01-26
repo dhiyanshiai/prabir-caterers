@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
               pointerEvents: 'none'
             }}
           >
-            <source src="/video/Prabir Caterer and Tent House - Wedding Celebrations in Varanasi.mp4" type="video/mp4" />
+            <source src="/video/prabir-wedding-video.mp4" type="video/mp4" />
             {/* Fallback image if video fails to load */}
             <img
               className="w-full h-full object-cover"
