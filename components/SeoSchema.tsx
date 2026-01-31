@@ -47,7 +47,7 @@ const SeoSchema: React.FC = () => {
         "foundingDate": "1983",
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.1",
+            "ratingValue": "4.7",
             "reviewCount": "150",
             "bestRating": "5",
             "worstRating": "1"

@@ -29,7 +29,7 @@ const WhyChooseUs: React.FC = () => {
         },
         {
             icon: Star,
-            title: "4.1★ Rated Service",
+            title: "4.7★ Rated Service",
             description: "150+ verified reviews on Justdial and local platforms. Customer satisfaction is our top priority.",
             highlight: "Highly Rated"
         },
