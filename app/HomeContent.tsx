@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Hero from '../components/Hero';
 import Welcome from '../components/Welcome';
 import Services from '../components/Services';
@@ -12,13 +11,15 @@ import TrustBadges from '../components/TrustBadges';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 
+/**
+ * Client-side home page content wrapper.
+ * 
+ * SEO NOTE: While this component is client-rendered, the critical SEO elements
+ * (metadata, JSON-LD schemas, H1 content) are in the server-rendered page.tsx.
+ * Google's crawler will see the metadata and structured data from the server response.
+ */
 const HomeContent = () => {
-    // Note: In Next.js App Router, we handle hash scrolling via effect if coming from another page
-    // or just let native behavior handle it.
-    // However, existing logic checks for hash on mount.
-    // useSearchParams doesn't give hash.
-    // We can use window.location.hash
-
+    // Handle hash navigation on mount
     useEffect(() => {
         if (window.location.hash) {
             const element = document.getElementById(window.location.hash.substring(1));

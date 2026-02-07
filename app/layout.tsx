@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: 'https://prabir-caterers.in',
+        languages: {
+            'en-IN': 'https://prabir-caterers.in',
+            'hi-IN': 'https://prabir-caterers.in',
+            'x-default': 'https://prabir-caterers.in',
+        },
     },
 };
 
@@ -70,6 +75,11 @@ export default function RootLayout({
                     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
                     rel="stylesheet"
                 />
+                {/* Geo-targeting meta tags for India/Varanasi local SEO */}
+                <meta name="geo.region" content="IN-UP" />
+                <meta name="geo.placename" content="Varanasi" />
+                <meta name="geo.position" content="25.3176;82.9739" />
+                <meta name="ICBM" content="25.3176, 82.9739" />
             </head>
             <body className="min-h-screen bg-white font-sans text-gray-900 selection:bg-marigold selection:text-white">
                 <SeoSchema />

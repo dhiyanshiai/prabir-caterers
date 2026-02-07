@@ -13,11 +13,12 @@ const Hero: React.FC = () => {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  // Lazy load video after initial page load
+  // Lazy load video after initial page load - increased delay for slow networks
+  // This prevents the 7MB video from blocking LCP on 3G/4G Indian networks
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldLoadVideo(true);
-    }, 500); // 500ms delay to let page load first
+    }, 3000); // 3s delay to ensure content is visible first
     return () => clearTimeout(timer);
   }, []);
 
@@ -114,19 +115,20 @@ const Hero: React.FC = () => {
             {/* Fallback image if video fails to load */}
             <img
               className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?q=80&w=2500&auto=format&fit=crop"
-              alt="Authentic Banarasi wedding cuisine"
+              src="/images/Decoration/Decoration_Stage.webp"
+              alt="Prabir Caterer wedding stage decoration in Varanasi"
             />
           </video>
         )}
 
-        {/* Fallback image while video loads */}
+        {/* Optimized local poster image for fast LCP */}
         {!videoLoaded && (
           <img
             className="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?q=80&w=2500&auto=format&fit=crop"
-            alt="Authentic Banarasi wedding cuisine"
+            src="/images/Decoration/Decoration_Stage.webp"
+            alt="Prabir Caterer & Tent House - Wedding decoration services in Varanasi"
             loading="eager"
+            fetchPriority="high"
           />
         )}
       </div>
@@ -147,11 +149,12 @@ const Hero: React.FC = () => {
           </span>
 
           {/* Enhanced Typography with Gradient Animation */}
-          {/* Enhanced Typography with Gradient Animation - H1 moved to Welcome section for SEO */}
-          <h2 className="display-heading text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)] mb-6">
+          {/* Primary H1 with target keywords for SEO - above the fold */}
+          <h1 className="sr-only">Prabir Caterer & Tent House - Best Wedding Caterers in Varanasi</h1>
+          <div className="display-heading text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)] mb-6" aria-hidden="true">
             <span className="block gradient-text-animated animate-slide-up stagger-1">Rishton ki</span>
             <span className="block text-white animate-slide-up stagger-2">Parampara</span>
-          </h2>
+          </div>
 
           <p className="body-large text-gray-100 max-w-3xl mx-auto drop-shadow-md italic font-serif mt-8 animate-slide-up stagger-3">
             "Ghat ki hawa, Shehnai ki goonj, <br className="hidden sm:block" />aur <span className="text-accent font-bold">Prabir Da (Nanu Da)</span> ka bharosa."
