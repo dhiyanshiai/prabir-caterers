@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -123,12 +124,14 @@ const Hero: React.FC = () => {
 
         {/* Optimized local poster image for fast LCP */}
         {!videoLoaded && (
-          <img
-            className="w-full h-full object-cover"
+          <Image
             src="/images/Decoration/Decoration_Stage.webp"
             alt="Prabir Caterer & Tent House - Wedding decoration services in Varanasi"
-            loading="eager"
-            fetchPriority="high"
+            width={1920}
+            height={1080}
+            priority
+            className="w-full h-full object-cover"
+            sizes="100vw"
           />
         )}
       </div>
