@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { X, Utensils, Tent, ClipboardCheck, ArrowRight } from 'lucide-react';
 import { Service } from '../types';
 
@@ -15,7 +16,7 @@ const services: (Service & { details: DetailedServiceContent })[] = [
     description: "Wedding Catering in Varanasi - Ghat-ghat ka swad, ek hi thaali mein. Authentic Banarasi cuisine for 50-1500 guests.",
     iconName: 'utensils',
     highlights: ['Banarasi Kachori-Jalebi', 'Shahi Paneer & Dal Makhani', 'Desi Ghee Sweets'],
-    image: 'https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2940&auto=format&fit=crop',
+    image: '/images/Food/Gemini_Generated_Cholar Dal, Puri, Paneer, Naan.webp',
     details: {
       menuTitle: "Khaane ka Menu",
       descriptionHindi: "Best Wedding Caterer in Varanasi - Subah ke nashte se lekar raat ki dawat tak, har nivala Banaras ki yaad dilayega. Humare yahan pure vegetarian aur non-vegetarian dono ka khaas intezaam hai. Chaahe aapki shaadi Assi Ghat par ho, Lanka mein, ya Godowlia ke paas - hum 50 se 1500 tak mehmano ke liye authentic Banarasi khana banate hain. Shuddh Desi Ghee aur ghar ke masalon ka upyog. Corporate events, birthday parties, aur family functions ke liye bhi hum catering services provide karte hain. Starting from ₹500 per plate for veg and ₹800 for non-veg.",
@@ -35,7 +36,7 @@ const services: (Service & { details: DetailedServiceContent })[] = [
     description: "Tent House Varanasi - Rangoli se Mandap tak. Royal Rajwadi setups for weddings, parties & corporate events.",
     iconName: 'tent',
     highlights: ['Phoolon ki Holli Theme', 'Royal Rajwadi Setups', 'Ganga Aarti Theme'],
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2940&auto=format&fit=crop',
+    image: '/images/Decoration/Decoration_Stage.webp',
     details: {
       menuTitle: "Sajawat ke Themes",
       descriptionHindi: "Mandap Decoration Expert in Varanasi - Pandey Haweli ki shaan ho ya modern banquet hall, hum har jagah ko 'Swarg' bana dete hain. Wedding decoration specialist serving all areas: Godowlia, Assi, Lanka, Sigra, Bhelupur, Nadesar. Genda phool aur lights ka adbhut sangam. Traditional Banarasi themes se lekar modern royal rajwadi setups tak - sab kuch customize kar sakte hain. Stage decoration, entrance gates, photo booths, lighting arrangements - complete package available. Perfect for weddings, engagement ceremonies, birthday parties, corporate events, and family celebrations.",
@@ -55,7 +56,7 @@ const services: (Service & { details: DetailedServiceContent })[] = [
     description: "Event Planning Varanasi - Complete wedding & event management. Chacha-Mama ki tension humari.",
     iconName: 'clipboard',
     highlights: ['Atithi Devo Bhava', 'Vendor Coordination', 'Time-to-Time Management'],
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2938&auto=format&fit=crop',
+    image: '/images/Decoration/WhatsApp Image 2026-01-01 at 11.02.54 PM_Grand Stage Setup.webp',
     details: {
       menuTitle: "Vyavastha & Suvidha",
       descriptionHindi: "Professional Event Planner in Varanasi - Shaadi ka ghar hai, shor toh hoga hi! Par tension nahi. Wedding planning from start to finish - venue selection, guest management, vendor coordination, timeline management - sab kuch. Guests ke aane se lekar vidaai tak, Prabir Da ki team sab sambhaal legi. We handle weddings, engagement parties, pre-wedding events (mehendi, sangeet), birthday celebrations, corporate events, and family functions across Varanasi. Our experienced team of 40+ years ensures smooth execution. From intimate family gatherings of 50 people to grand weddings of 1500+ guests.",
@@ -128,9 +129,11 @@ const Services: React.FC = () => {
             >
               {/* Image Section */}
               <div className="relative h-64 overflow-hidden">
-                <img
-                  src={service.image}
+                <Image
+                  src={service.image!}
                   alt={service.id === 'catering' ? 'Traditional Banarasi wedding catering - Authentic North Indian cuisine' : service.id === 'decor' ? 'Royal mandap decoration for Varanasi weddings - Tent house setup' : 'Complete wedding event planning and management in Varanasi'}
+                  width={400}
+                  height={256}
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />

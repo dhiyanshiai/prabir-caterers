@@ -1,22 +1,44 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Hero from '../components/Hero';
 import Welcome from '../components/Welcome';
 import Services from '../components/Services';
 import About from '../components/About';
-import WhyChooseUs from '../components/WhyChooseUs';
-import Gallery from '../components/Gallery';
-import TrustBadges from '../components/TrustBadges';
-import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
+
+// Dynamic imports for below-fold components to reduce initial JS bundle
+// These components load lazily as user scrolls down
+const WhyChooseUs = dynamic(() => import('../components/WhyChooseUs'), {
+    loading: () => <div className="h-96 bg-gradient-to-b from-gray-50 to-white animate-pulse" />,
+    ssr: true
+});
+
+const Gallery = dynamic(() => import('../components/Gallery'), {
+    loading: () => <div className="h-96 bg-gray-100 animate-pulse" />,
+    ssr: true
+});
+
+const TrustBadges = dynamic(() => import('../components/TrustBadges'), {
+    loading: () => <div className="h-48 bg-white animate-pulse" />,
+    ssr: true
+});
+
+const Testimonials = dynamic(() => import('../components/Testimonials'), {
+    loading: () => <div className="h-96 bg-gradient-to-b from-white to-gray-50 animate-pulse" />,
+    ssr: true
+});
+
+const FAQ = dynamic(() => import('../components/FAQ'), {
+    loading: () => <div className="h-96 bg-white animate-pulse" />,
+    ssr: true
+});
 
 /**
  * Client-side home page content wrapper.
  * 
- * SEO NOTE: While this component is client-rendered, the critical SEO elements
- * (metadata, JSON-LD schemas, H1 content) are in the server-rendered page.tsx.
- * Google's crawler will see the metadata and structured data from the server response.
+ * PERFORMANCE: Below-fold components use dynamic imports to reduce initial bundle.
+ * SEO: Metadata and JSON-LD are server-rendered in page.tsx.
  */
 const HomeContent = () => {
     // Handle hash navigation on mount
