@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -13,11 +14,12 @@ const Hero: React.FC = () => {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  // Load video quickly - no poster image means we need video ASAP
+  // Delay video loading to let the priority image serve as LCP
+  // This prevents the 3MB video from blocking LCP on 3G/4G networks
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldLoadVideo(true);
-    }, 500); // 500ms delay for initial page render
+    }, 3000); // 3s delay to ensure image LCP completes first
     return () => clearTimeout(timer);
   }, []);
 
@@ -118,6 +120,19 @@ const Hero: React.FC = () => {
               alt="Prabir Caterer wedding stage decoration in Varanasi"
             />
           </video>
+        )}
+
+        {/* Priority LCP image - shows immediately for fast LCP */}
+        {!videoLoaded && (
+          <Image
+            src="/images/Decoration/Decoration_Stage.webp"
+            alt="Prabir Caterer & Tent House - Best Wedding Caterer in Varanasi"
+            width={1920}
+            height={1080}
+            priority
+            className="absolute inset-0 w-full h-full object-cover"
+            sizes="100vw"
+          />
         )}
       </div>
 
