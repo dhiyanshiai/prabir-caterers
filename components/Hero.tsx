@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -119,19 +118,6 @@ const Hero: React.FC = () => {
               alt="Prabir Caterer wedding stage decoration in Varanasi"
             />
           </video>
-        )}
-
-        {/* Priority LCP image - shows immediately for fast LCP */}
-        {!videoLoaded && (
-          <Image
-            src="/images/Decoration/Decoration_Stage.webp"
-            alt="Prabir Caterer & Tent House - Best Wedding Caterer in Varanasi"
-            width={1920}
-            height={1080}
-            priority
-            className="w-full h-full object-cover"
-            sizes="100vw"
-          />
         )}
       </div>
 

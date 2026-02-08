@@ -289,7 +289,7 @@ const Navigation: React.FC = () => {
             <Link
               href="/services-detail#pricing"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-4 rounded-xl bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 hover:border-accent transition-all group relative overflow-hidden"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 hover:border-accent transition-all group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform relative z-10">
@@ -308,7 +308,7 @@ const Navigation: React.FC = () => {
             <Link
               href="/services-detail"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-primary/10 transition-all group"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Star className="text-primary" size={20} />
@@ -323,7 +323,7 @@ const Navigation: React.FC = () => {
             <a
               href="#about"
               onClick={(e) => handleHashClick(e, '#about')}
-              className="flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-primary/10 transition-all group"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Heart className="text-primary" size={20} />
@@ -338,7 +338,7 @@ const Navigation: React.FC = () => {
             <Link
               href="/our-story"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-primary/10 transition-all group"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <BookOpen className="text-primary" size={20} />
@@ -353,7 +353,7 @@ const Navigation: React.FC = () => {
             <Link
               href="/gallery"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-primary/10 transition-all group"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Camera className="text-primary" size={20} />
@@ -368,7 +368,7 @@ const Navigation: React.FC = () => {
             <a
               href="#reviews"
               onClick={(e) => handleHashClick(e, '#reviews')}
-              className="flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-primary/10 transition-all group"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Star className="text-primary" size={20} />
@@ -383,7 +383,7 @@ const Navigation: React.FC = () => {
             <Link
               href="/blog"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-4 rounded-xl hover:bg-primary/10 transition-all group"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <BookOpen className="text-primary" size={20} />

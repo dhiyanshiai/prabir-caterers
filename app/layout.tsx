@@ -1,25 +1,12 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import PhoneFloat from '../components/PhoneFloat';
 import WhatsAppFloat from '../components/WhatsAppFloat';
 import SeoSchema from '../components/SeoSchema';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
-
-const playfair = Playfair_Display({
-    subsets: ['latin'],
-    variable: '--font-playfair',
-    display: 'swap',
-});
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://prabir-caterers.in'),
@@ -82,14 +69,19 @@ export default function RootLayout({
               gtag('config', 'G-NBW1WN5QVD');
             `}
                 </Script>
-
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
+                    rel="stylesheet"
+                />
                 {/* Geo-targeting meta tags for India/Varanasi local SEO */}
                 <meta name="geo.region" content="IN-UP" />
                 <meta name="geo.placename" content="Varanasi" />
                 <meta name="geo.position" content="25.3176;82.9739" />
                 <meta name="ICBM" content="25.3176, 82.9739" />
             </head>
-            <body className={`min-h-screen bg-white font-sans text-gray-900 selection:bg-marigold selection:text-white ${inter.variable} ${playfair.variable}`}>
+            <body className="min-h-screen bg-white font-sans text-gray-900 selection:bg-marigold selection:text-white">
                 <SeoSchema />
                 <Navigation />
                 {children}
