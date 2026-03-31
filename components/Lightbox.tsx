@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface LightboxProps {
@@ -16,19 +16,16 @@ export interface GalleryImage {
 }
 
 const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, isOpen, onClose, onNavigate }) => {
-    if (!isOpen) return null;
-
-    const currentImage = images[currentIndex];
-    const handlePrevious = () => {
+    const handlePrevious = useCallback(() => {
         onNavigate(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-    };
+    }, [currentIndex, images.length, onNavigate]);
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         onNavigate(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
-    };
+    }, [currentIndex, images.length, onNavigate]);
 
     // Keyboard navigation
-    React.useEffect(() => {
+    useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (!isOpen) return;
             if (e.key === 'Escape') onClose();
@@ -38,10 +35,10 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, isOpen, onClo
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isOpen, currentIndex]);
+    }, [isOpen, onClose, handlePrevious, handleNext]);
 
     // Prevent body scroll when lightbox is open
-    React.useEffect(() => {
+    useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -51,6 +48,10 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, isOpen, onClo
             document.body.style.overflow = 'unset';
         };
     }, [isOpen]);
+
+    if (!isOpen) return null;
+
+    const currentImage = images[currentIndex];
 
     return (
         <div
@@ -105,12 +106,14 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, isOpen, onClo
             </button>
 
             {/* Image */}
-            <img
-                src={currentImage.src}
-                alt={currentImage.alt}
-                className="max-w-[90vw] max-h-[90vh] object-contain"
-                onClick={(e) => e.stopPropagation()}
-            />
+            <picture>
+                <img
+                    src={currentImage.src}
+                    alt={currentImage.alt}
+                    className="max-w-[90vw] max-h-[90vh] object-contain"
+                    onClick={(e) => e.stopPropagation()}
+                />
+            </picture>
         </div>
     );
 };

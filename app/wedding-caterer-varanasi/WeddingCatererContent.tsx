@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChefHat, Star, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import { ChefHat, Star, Users, CheckCircle, ArrowRight } from 'lucide-react';
 
 const WeddingCatererContent = () => {
     return (

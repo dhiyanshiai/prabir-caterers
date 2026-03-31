@@ -27,8 +27,7 @@ const Navigation: React.FC = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       } else {
-        // Fallback if element not yet mounted or found, although usually it should be
-        window.location.hash = hash;
+        router.push(hash);
       }
     } else {
       // Navigate to homepage with hash

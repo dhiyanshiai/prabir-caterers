@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Award, Users, MapPin, Star, Clock, ChefHat } from 'lucide-react';
+import { CheckCircle, Users, MapPin, Star, Clock, ChefHat } from 'lucide-react';
 
 const WhyChooseUs: React.FC = () => {
     const reasons = [

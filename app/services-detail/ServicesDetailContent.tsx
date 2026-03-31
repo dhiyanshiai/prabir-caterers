@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 // import { useLocation } from 'react-router-dom'; // Removed
 import { Utensils, Tent, ClipboardCheck, Star, Award, Clock, Camera } from 'lucide-react';
 import PricingCalculator from '../../components/PricingCalculator';
-import Lightbox, { GalleryImage } from '../../components/Lightbox';
+import Lightbox from '../../components/Lightbox';
 import { galleryImages } from '../../components/Gallery';
 
 const ServicesDetailContent: React.FC = () => {

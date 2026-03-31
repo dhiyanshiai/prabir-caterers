@@ -44,7 +44,7 @@ export async function generateMetadata(
                 canonical: `https://prabir-caterers.in/blog/${slug}`,
             }
         };
-    } catch (error) {
+    } catch {
         return {
             title: 'Post Not Found | Prabir Caterer',
         };
@@ -58,43 +58,44 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: Props) {
     const slug = (await params).slug;
+    let post;
 
     try {
-        const post = await getPostData(slug);
-
-        const jsonLd = {
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            headline: post.title,
-            image: post.image,
-            author: {
-                '@type': 'Person',
-                name: post.author,
-                jobTitle: post.author.includes('Prabir') ? 'Founder & Head Caterer' : 'Expert Team',
-                url: 'https://prabir-caterers.in/our-story'
-            },
-            publisher: {
-                '@type': 'Organization',
-                name: 'Prabir Caterer',
-                logo: {
-                    '@type': 'ImageObject',
-                    url: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp'
-                }
-            },
-            datePublished: post.date,
-            description: post.excerpt
-        };
-
-        return (
-            <>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
-                <BlogPostContent post={post} />
-            </>
-        );
-    } catch (error) {
+        post = await getPostData(slug);
+    } catch {
         notFound();
     }
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        image: post.image,
+        author: {
+            '@type': 'Person',
+            name: post.author,
+            jobTitle: post.author.includes('Prabir') ? 'Founder & Head Caterer' : 'Expert Team',
+            url: 'https://prabir-caterers.in/our-story'
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Prabir Caterer',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp'
+            }
+        },
+        datePublished: post.date,
+        description: post.excerpt
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <BlogPostContent post={post} />
+        </>
+    );
 }

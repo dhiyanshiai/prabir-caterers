@@ -1,6 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
-
 const Welcome: React.FC = () => {
     return (
         <section className="py-16 bg-white relative overflow-hidden">

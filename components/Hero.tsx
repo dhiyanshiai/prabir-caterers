@@ -6,13 +6,7 @@ const Hero: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Check if mobile on mount
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
 
   // Delay video loading to let the priority image serve as LCP
   // This prevents the 3MB video from blocking LCP on 3G/4G networks
@@ -114,11 +108,13 @@ const Hero: React.FC = () => {
           >
             <source src="/hero.mp4" type="video/mp4" />
             {/* Fallback image if video fails to load */}
-            <img
-              className="w-full h-full object-cover"
-              src="/images/Decoration/Decoration_Stage.webp"
-              alt="Prabir Caterer wedding stage decoration in Varanasi"
-            />
+            <picture>
+              <img
+                className="w-full h-full object-cover"
+                src="/images/Decoration/Decoration_Stage.webp"
+                alt="Prabir Caterer wedding stage decoration in Varanasi"
+              />
+            </picture>
           </video>
         )}
 

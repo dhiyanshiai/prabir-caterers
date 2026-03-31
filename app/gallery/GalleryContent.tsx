@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Camera, Grid3x3, LayoutGrid } from 'lucide-react';
-import Lightbox, { GalleryImage } from '../../components/Lightbox';
+import Lightbox from '../../components/Lightbox';
 import { galleryImages } from '../../components/Gallery';
 
 const GalleryContent: React.FC = () => {
