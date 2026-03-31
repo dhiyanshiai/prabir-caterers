@@ -84,6 +84,8 @@ export default function HomePage() {
         ]
     };
 
+    void faqJsonLd;
+
     const breadcrumbJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -102,10 +104,6 @@ export default function HomePage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
             />
             <script
                 type="application/ld+json"
