@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getSortedPostsData } from '../lib/markdown';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://prabir-caterers.in';
+    const baseUrl = 'https://www.prabir-caterers.in';
 
     const blogPosts = getSortedPostsData().map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,

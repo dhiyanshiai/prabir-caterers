@@ -9,7 +9,7 @@ import WhatsAppFloat from '../components/WhatsAppFloat';
 import SeoSchema from '../components/SeoSchema';
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://prabir-caterers.in'),
+    metadataBase: new URL('https://www.prabir-caterers.in'),
     title: 'Prabir Caterer & Tent House | Best Wedding Caterers in Varanasi',
     description: 'Best Wedding Caterer in Varanasi | Prabir Caterer & Tent House - Authentic Banarasi cuisine, royal mandap decoration, event planning. Serving Varanasi since 1983. Book now!',
     keywords: 'Wedding Caterer Varanasi, Best Caterers in Varanasi, Tent House Varanasi, Event Planner Varanasi, Banarasi Wedding Catering, Mandap Decoration Varanasi, Prabir Caterer, Gonu Babu Katra, Wedding Services Varanasi',
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
         title: 'Prabir Caterer & Tent House | Varanasi',
         description: 'Crafting precious moments since 1983. Authentic Banarasi Catering & Royal Decor.',
         type: 'website',
-        url: 'https://prabir-caterers.in',
+        url: 'https://www.prabir-caterers.in',
         images: [
             {
-                url: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
+                url: 'https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
                 width: 1200,
                 height: 630,
             },
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: "Prabir Caterer & Tent House | Varanasi's Best Wedding Services",
         description: "Banaras ki Shaan, 1983 se. Prabir Caterer offers authentic Banarasi catering and royal mandap decoration for weddings.",
-        images: ['https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp'],
+        images: ['https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp'],
     },
     alternates: {
-        canonical: 'https://prabir-caterers.in',
+        canonical: 'https://www.prabir-caterers.in',
         languages: {
-            'en-IN': 'https://prabir-caterers.in',
-            'hi-IN': 'https://prabir-caterers.in',
-            'x-default': 'https://prabir-caterers.in',
+            'en-IN': 'https://www.prabir-caterers.in',
+            'hi-IN': 'https://www.prabir-caterers.in',
+            'x-default': 'https://www.prabir-caterers.in',
         },
     },
 };

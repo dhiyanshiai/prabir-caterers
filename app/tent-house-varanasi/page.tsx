@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Best Tent House & Decor in Varanasi | Prabir Caterer',
         description: 'Transforming venues into dreamscapes. Luxury tenting and royal decor since 1983.',
-        url: 'https://prabir-caterers.in/tent-house-varanasi',
+        url: 'https://www.prabir-caterers.in/tent-house-varanasi',
         siteName: 'Prabir Caterer & Tent House',
         locale: 'en_IN',
         type: 'website',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: 'https://prabir-caterers.in/tent-house-varanasi',
+        canonical: 'https://www.prabir-caterers.in/tent-house-varanasi',
     },
 };
 
@@ -35,7 +35,7 @@ export default function TentHousePage() {
         provider: {
             '@type': 'LocalBusiness',
             name: 'Prabir Caterer & Tent House',
-            image: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
+            image: 'https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
             telephone: '+919839553272',
             address: {
                 '@type': 'PostalAddress',

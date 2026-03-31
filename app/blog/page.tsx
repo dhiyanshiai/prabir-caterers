@@ -8,13 +8,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Wedding Planning & Food Blog | Prabir Caterer',
         description: 'Read our latest articles on Banarasi wedding traditions, catering tips, and event planning.',
-        url: 'https://prabir-caterers.in/blog',
+        url: 'https://www.prabir-caterers.in/blog',
         siteName: 'Prabir Caterer & Tent House',
         locale: 'en_IN',
         type: 'website',
     },
     alternates: {
-        canonical: 'https://prabir-caterers.in/blog',
+        canonical: 'https://www.prabir-caterers.in/blog',
     }
 };
 

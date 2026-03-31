@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Corporate Catering Services in Varanasi | Prabir Caterer',
         description: 'Elevate your business events with our professional catering services. 40+ years of trust.',
-        url: 'https://prabir-caterers.in/corporate-catering-varanasi',
+        url: 'https://www.prabir-caterers.in/corporate-catering-varanasi',
         siteName: 'Prabir Caterer & Tent House',
         locale: 'en_IN',
         type: 'website',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: 'https://prabir-caterers.in/corporate-catering-varanasi',
+        canonical: 'https://www.prabir-caterers.in/corporate-catering-varanasi',
     },
 };
 
@@ -35,7 +35,7 @@ export default function CorporateCateringPage() {
         provider: {
             '@type': 'LocalBusiness',
             name: 'Prabir Caterer & Tent House',
-            image: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
+            image: 'https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
             telephone: '+919839553272',
             address: {
                 '@type': 'PostalAddress',

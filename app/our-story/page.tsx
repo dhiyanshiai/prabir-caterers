@@ -7,13 +7,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Our Story - Legacy of 40 Years | Prabir Caterer',
         description: 'Serving Varanasi with love and authentic flavors for over 40 years. Discover the story behind Prabir Caterer.',
-        url: 'https://prabir-caterers.in/our-story',
+        url: 'https://www.prabir-caterers.in/our-story',
         siteName: 'Prabir Caterer & Tent House',
         locale: 'en_IN',
         type: 'website',
     },
     alternates: {
-        canonical: 'https://prabir-caterers.in/our-story',
+        canonical: 'https://www.prabir-caterers.in/our-story',
     }
 };
 

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title: 'Prabir Caterer & Tent House | Best Wedding Caterers in Varanasi',
     description: 'Best Wedding Caterer in Varanasi | Prabir Caterer & Tent House - Authentic Banarasi cuisine, royal mandap decoration, event planning. Serving Varanasi since 1983. Book now!',
     alternates: {
-        canonical: 'https://prabir-caterers.in',
+        canonical: 'https://www.prabir-caterers.in',
     }
 };
 
@@ -14,9 +14,9 @@ export default function HomePage() {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
         name: 'Prabir Caterer & Tent House',
-        image: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
+        image: 'https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
         description: 'Best Wedding Caterer in Varanasi | Prabir Caterer & Tent House - Authentic Banarasi cuisine, royal mandap decoration, event planning.',
-        url: 'https://prabir-caterers.in',
+        url: 'https://www.prabir-caterers.in',
         telephone: '+919839553272',
         address: {
             '@type': 'PostalAddress',
@@ -92,7 +92,7 @@ export default function HomePage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://prabir-caterers.in'
+                item: 'https://www.prabir-caterers.in'
             }
         ]
     };

@@ -7,13 +7,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Catering & Decoration Services in Varanasi | Prabir Caterer',
         description: 'Expert wedding planning, catering, and decoration services in Varanasi. 40+ years of experience.',
-        url: 'https://prabir-caterers.in/services-detail',
+        url: 'https://www.prabir-caterers.in/services-detail',
         siteName: 'Prabir Caterer & Tent House',
         locale: 'en_IN',
         type: 'website',
     },
     alternates: {
-        canonical: 'https://prabir-caterers.in/services-detail',
+        canonical: 'https://www.prabir-caterers.in/services-detail',
     }
 };
 
@@ -98,13 +98,13 @@ export default function ServicesDetailPage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://prabir-caterers.in'
+                item: 'https://www.prabir-caterers.in'
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Services',
-                item: 'https://prabir-caterers.in/services-detail'
+                item: 'https://www.prabir-caterers.in/services-detail'
             }
         ]
     };

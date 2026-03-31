@@ -7,9 +7,9 @@ const SeoSchema: React.FC = () => {
         "name": "Prabir Caterer & Tent House",
         "alternateName": "Prabir Caterer",
         "description": "Best wedding caterer and tent house in Varanasi since 1983. Authentic Banarasi cuisine, veg & non-veg catering for 50-1500 guests, royal mandap decoration, and comprehensive event planning services.",
-        "image": "https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp",
-        "@id": "https://prabir-caterers.in",
-        "url": "https://prabir-caterers.in",
+        "image": "https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp",
+        "@id": "https://www.prabir-caterers.in",
+        "url": "https://www.prabir-caterers.in",
         "telephone": ["+919839553272", "+918303439353"],
         "email": "prabirmukherjee181960@gmail.com",
         "address": {

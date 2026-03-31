@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/api/',
         },
-        sitemap: 'https://prabir-caterers.in/sitemap.xml',
+        sitemap: 'https://www.prabir-caterers.in/sitemap.xml',
     };
 }

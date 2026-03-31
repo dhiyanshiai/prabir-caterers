@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Best Wedding Caterer in Varanasi | Prabir Caterer',
         description: 'Authentic Banarasi cuisine for your wedding. 40+ years of experience serving Varanasi.',
-        url: 'https://prabir-caterers.in/wedding-caterer-varanasi',
+        url: 'https://www.prabir-caterers.in/wedding-caterer-varanasi',
         siteName: 'Prabir Caterer & Tent House',
         locale: 'en_IN',
         type: 'website',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: 'https://prabir-caterers.in/wedding-caterer-varanasi',
+        canonical: 'https://www.prabir-caterers.in/wedding-caterer-varanasi',
     },
 };
 
@@ -35,7 +35,7 @@ export default function WeddingCatererPage() {
         provider: {
             '@type': 'LocalBusiness',
             name: 'Prabir Caterer & Tent House',
-            image: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
+            image: 'https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
             telephone: '+919839553272',
             address: {
                 '@type': 'PostalAddress',
