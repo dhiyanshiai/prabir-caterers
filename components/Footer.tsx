@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="https://www.facebook.com/prabir.mukherjee.50702769"
+                  href="https://www.facebook.com/people/Prabir-Caterer-Tent-House/100063713636783/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
                   <Facebook />
                 </a>
                 <a
-                  href="https://www.instagram.com/prabir.mukherjee.50702769"
+                  href="https://www.instagram.com/prabircaterer/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"

@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
-    const staticLastMod = new Date('2026-01-26');
+    const staticLastMod = new Date('2026-03-31');
 
     return [
         {

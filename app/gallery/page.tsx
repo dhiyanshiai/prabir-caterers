@@ -7,13 +7,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Wedding Gallery - Food & Decor Photos | Prabir Caterer',
         description: 'See our work: Authentic Banarasi catering and royal wedding decorations in Varanasi.',
-        url: 'https://prabircaterer.com/gallery',
+        url: 'https://prabir-caterers.in/gallery',
         siteName: 'Prabir Caterer & Tent House',
         locale: 'en_IN',
         type: 'website',
     },
     alternates: {
-        canonical: 'https://prabircaterer.com/gallery',
+        canonical: 'https://prabir-caterers.in/gallery',
     }
 };
 

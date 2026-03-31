@@ -11,7 +11,7 @@ const SeoSchema: React.FC = () => {
         "@id": "https://prabir-caterers.in",
         "url": "https://prabir-caterers.in",
         "telephone": ["+919839553272", "+918303439353"],
-        "email": "prabir1983.mukherjee@gmail.com",
+        "email": "prabirmukherjee181960@gmail.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Gonu Babu Katra",
@@ -83,8 +83,8 @@ const SeoSchema: React.FC = () => {
             }
         ],
         "sameAs": [
-            "https://www.facebook.com/prabir.mukherjee.50702769",
-            "https://www.instagram.com/prabir.mukherjee.50702769"
+            "https://www.facebook.com/people/Prabir-Caterer-Tent-House/100063713636783/",
+            "https://www.instagram.com/prabircaterer/"
         ]
     };
 

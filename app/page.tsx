@@ -14,7 +14,7 @@ export default function HomePage() {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
         name: 'Prabir Caterer & Tent House',
-        image: 'https://www.prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
+        image: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp',
         description: 'Best Wedding Caterer in Varanasi | Prabir Caterer & Tent House - Authentic Banarasi cuisine, royal mandap decoration, event planning.',
         url: 'https://prabir-caterers.in',
         telephone: '+919839553272',
@@ -23,14 +23,14 @@ export default function HomePage() {
             streetAddress: 'Gonu Babu Katra',
             addressLocality: 'Varanasi',
             addressRegion: 'UP',
-            postalCode: '221010',
+            postalCode: '221001',
             addressCountry: 'IN'
         },
         priceRange: '₹₹',
         aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: '4.7',
-            reviewCount: '1250'
+            reviewCount: '150'
         },
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',

@@ -25,7 +25,7 @@ export async function generateMetadata(
             openGraph: {
                 title: post.title,
                 description: post.excerpt || `Read more about ${post.title}`,
-                url: `https://prabircaterer.com/blog/${slug}`,
+                url: `https://prabir-caterers.in/blog/${slug}`,
                 siteName: 'Prabir Caterer & Tent House',
                 locale: 'en_IN',
                 type: 'article',
@@ -41,7 +41,7 @@ export async function generateMetadata(
                 publishedTime: new Date(post.date).toISOString(),
             },
             alternates: {
-                canonical: `https://prabircaterer.com/blog/${slug}`,
+                canonical: `https://prabir-caterers.in/blog/${slug}`,
             }
         };
     } catch (error) {
@@ -71,14 +71,14 @@ export default async function BlogPostPage({ params }: Props) {
                 '@type': 'Person',
                 name: post.author,
                 jobTitle: post.author.includes('Prabir') ? 'Founder & Head Caterer' : 'Expert Team',
-                url: 'https://prabircaterer.com/our-story'
+                url: 'https://prabir-caterers.in/our-story'
             },
             publisher: {
                 '@type': 'Organization',
                 name: 'Prabir Caterer',
                 logo: {
                     '@type': 'ImageObject',
-                    url: 'https://prabircaterer.com/logo.png'
+                    url: 'https://prabir-caterers.in/images/Decoration/Decoration_Stage.webp'
                 }
             },
             datePublished: post.date,
